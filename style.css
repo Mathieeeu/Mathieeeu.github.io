@@ -40,7 +40,7 @@ body {
 }
 
 .box:nth-child(1) {
-    background-image: url('polyrithms.png');
+    background-image: url('icons/polyrithms.png');
     background-size: cover;
     background-position: center;
 }
