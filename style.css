@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.box {
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    min-height: 40vh;
+    max-width: 35vw;
+    cursor: pointer;
+}
+
+.box a {
+    text-decoration: none;
+    color: #e4dfdf;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: transform 3s;
+}
+
+.box:hover {
+    transition: transform 1s;
+    transform: translateX(10px);
+}
+
+.box:nth-child(1) {
+    background-image: url('polyrithms.png');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 768px) {
+    .box {
+        flex: 1 1 100%;
+        min-height: 20vh;
+        max-width: 75%;
+    }
+}
