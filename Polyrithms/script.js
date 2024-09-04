@@ -45,6 +45,7 @@ async function drawCircles() {
 
 function start() {
     if (circlesReady) {
+        document.getElementById('start').style.display = 'none';
         animate(tabCircles);
     }
 }
@@ -58,12 +59,13 @@ function animate(tabCircles) {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas once per frame
     for (let i = 0; i < nbCircles; i++) {
         tabCircles[i].angle += vitesse / tabCircles[i].rayon;
+        if (tabCircles[i].angle > 2 * Math.PI) {
+            console.log('sounds/'+ instrument + '/' + i%nbSounds + '.mp3');
+            playSound('sounds/'+ instrument + '/' + i%nbSounds + '.mp3');
+        }
         let x = tabCircles[i].rayon * Math.cos(tabCircles[i].angle) + x_center;
         let y = tabCircles[i].rayon * Math.sin(tabCircles[i].angle) + y_center;
         let point = new Point(x, y);
-        if (tabCircles[i].angle > 2 * Math.PI) {
-            playSound('sounds/' + (27-i) + '.mp3');
-        }
         if (tabCircles[i].angle >  2 * Math.PI) {
             tabCircles[i].angle = 0;
         }
@@ -85,6 +87,9 @@ let tabCircles = [];
 let tabPoints = [];
 let color = '#f2f4d1';
 let color2 = '#179204';
+
+const instrument = 'vibraphone';
+const nbSounds = 10;
 
 const vitesse = 2;
 let framerate = 60;
