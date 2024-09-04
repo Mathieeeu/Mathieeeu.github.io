@@ -38,6 +38,12 @@ function sleep(ms) {
 }
 
 async function drawCircles() {
+
+    // joue un son pour faire charger (pour éviter le délai lors des premiers sons) 
+    // envoie une exception comme personne n'a interagi avec la page mais au moins il n'y a pas le son :)
+    var a = new Audio('sounds/'+ instrument + '/0.mp3');
+    a.play();
+
     let radius = minRadius;
     for (let i = 0; i < nbCircles; i++) {
         tabCircles[i] = new Circle(radius, x_center, y_center,0,color1);
