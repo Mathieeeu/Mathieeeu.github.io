@@ -99,8 +99,8 @@ let circlesReady = false;
 
 let x_center = canvas.width / 2;
 let y_center = canvas.height / 2;
-const nbCircles = 27;
-let minRadius = 25;
+const nbCircles = 20;
+let minRadius = 150;
 let tabCircles = [];
 let tabPoints = [];
 let color1 = '#f2f4d1';
