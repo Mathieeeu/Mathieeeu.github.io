@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<!-- saved from url=(0125)file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Réseaux - Cours complet</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./Réseaux - Cours complet_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+    .embed {
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+    }
+    #div-sommaire {
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 35px;
+        padding-top: 0;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+    }
+</style>
+<h1 id="info743---réseaux-et-systèmes-répartis">INFO743 - Réseaux et Systèmes Répartis </h1>
+<div id="div-sommaire">
+<h2 id="sommaire">Sommaire </h2>
+<ul>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#d%C3%A9finitions-et-concepts-de-base">Définitions et concepts de base</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#internet">Internet</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#performances">Performances</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#s%C3%A9curit%C3%A9-du-r%C3%A9seau">Sécurité du réseau</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#mod%C3%A8le-osi">Modèle OSI</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#2-historique-dinternet">2. Historique d'Internet</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#3-couches-application-et-transport">3. Couches Application et Transport</a>
+<ul>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#31-couche-application">3.1. Couche Application</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#32-couche-transport">3.2. Couche Transport</a></li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#33-fonctionnement-dune-application-internet">3.3. Fonctionnement d'une application sur Internet</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/doche/OneDrive/cours/IDU-4/INFO743%20-%20R%C3%A9seaux%20et%20Syst%C3%A8mes%20R%C3%A9partis/fiches/cours.html#4-couche-r%C3%A9seau">4. Couche Réseau</a></li>
+</ul>
+</div>
+<hr>
+<h2 id="1-introduction">1. Introduction </h2>
+<h3 id="définitions-et-concepts-de-base">Définitions et concepts de base </h3>
+<div class="embed">
+<dl>
+<dt>Bit</dt>
+<dd>Unité d'information binaire (<u>B</u>inary un<u>it</u>), pouvant prendre les valeurs 0 ou 1.</dd>
+<dt>Câble ethernet</dt>
+<dd>Câble permettant de relier des équipements informatiques entre eux. Ce sont des câbles en paires torsadées (twisted pair) pour éviter les interférences électromagnétiques.</dd>
+<dt>Routage</dt>
+<dd>Technique permettant de déterminer le chemin à emprunter pour acheminer des données d'un point à un autre sur un réseau.</dd>
+<dt>Forwarding</dt>
+<dd>Action de guider le paquet de données vers sa destination.</dd>
+<dt>Packet-switching</dt>
+<dd>Technique de transmission de données où les données sont découpées en paquets qui sont envoyés séparément. Les paquets peuvent emprunter des chemins différents pour arriver à destination. Il arrive que les paquets soient perdus.</dd>
+<dd><strong>Store-and-forward</strong> <em>(si le noeud est dispo)</em>, le paquet est stocké puis envoyé avec un délai de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>L</mi><mi>R</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{L}{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> secondes (paquet de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> bits envoyé à un débit de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> bps).</dd>
+<dd><strong>Queuing</strong> <em>(si le noeud est occupé)</em>, le paquet est mis en liste d'attente puis envoyé dès que possible. Si la file d'attente est pleine, les paquets entrants sont ignorés et perdus.</dd>
+<dt>Circuit-switching</dt>
+<dd>Alternative au Packet-switching, les chemins sont établis à l'avance donc les noeuds sont moins sollicités. Peu utilisé sur Internet car un système ne peut avoir qu'un seul interlocuteur à la fois, ce qui augmente énormément le nombre de noeuds.</dd>
+</dl>
+<blockquote>
+<p>Aujourd'hui, certains protocoles requièrent un transfert de données plus fiable donc on utilise les deux sur Internet : le circuit-switching pour <u>quelques routes privilégiées</u> et le packet-switching pour le reste.</p>
+</blockquote>
+<dl>
+<dt>Frequency Division Multiplexing (FDM)</dt>
+<dd>Technique de multiplexage qui consiste à diviser la bande passante d'un même support physique en plusieurs canaux de fréquences distinctes. Chaque canal peut transmettre au débit maximal qui lui est alloué.</dd>
+<dt>Time Division Multiplexing (TDM)</dt>
+<dd>Technique de multiplexage qui consiste à diviser le temps d'accès à un support physique en plusieurs intervalles de temps entrelacés. Chaque intervalle est alloué à un canal différent. Le débit de chaque canal dépend donc du nombre d'utilisateurs</dd>
+</dl>
+<p><img src="./Réseaux - Cours complet_files/tdm_fdm.png" alt="Schéma : FDM et TDM"></p>
+</div>
+<h3 id="internet">Internet </h3>
+<div class="embed">
+<dl>
+<dt>Internet Service Provider (ISP, ou FAI en français)</dt>
+<dd>
+<p>Entreprise qui fournit des services d'accès à Internet.</p>
+</dd>
+<dd>
+<p><strong>Interconnexion</strong> : Les ISP sont interconnectés entre eux pour permettre à leurs clients de communiquer avec les clients des autres ISP (dans la limite des accords et géorestrictions).</p>
+</dd>
+<dd>
+<p><strong>Politiques nationales</strong> : L'évolution du réseau est influencée par l'économie et les politiques nationales.<br>
+<em>Exemple : la connexion Europe-USA est plus rapide que Suède-Russie</em></p>
+</dd>
+<dd>
+<p><strong>Comment connecter les ISP entre eux ?</strong></p>
+<ul>
+<li>
+<dl>
+<dt><strong>Connecter chaque réseau à tous les autres</strong> :</dt>
+<dd>Complexité en <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> → trop complexe donc impossible.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Connecter chaque réseau à un ISP global</strong> :</dt>
+<dd>Complexe sur le plan politique.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Conecter chaque réseau à des réseaux régionaux</strong> :</dt>
+<dd>Ils sont reliés entre eux par des IXP (<u>I</u>nternet E<u>x</u>change <u>P</u>oint). C'est ce qui est fait aujourd'hui.</dd>
+<dd><strong>Schéma</strong> : Accès ISP → ISP Régional → IXP → Tier-1 ISP (réseau mondial)</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3 id="performances">Performances </h3>
+<div class="embed">
+<blockquote>
+<p>Les pertes de données se font lorsque la file d'attente est pleine, et la file d'attente se remplit lorsque le nombre de paquets en entrée dépasse les capacités de sortie du noeud</p>
+</blockquote>
+<dl>
+<dt>Temps d'attente (queueing delay)</dt>
+<dd>Temps passé par un paquet dans la file d'attente, dépend de la capacité de sortie du noeud.</dd>
+<dd><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>q</mi><mi>u</mi><mi>e</mi><mi>u</mi><mi>e</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>L</mi><mo>×</mo><mi>a</mi></mrow><mi>R</mi></mfrac></mrow><annotation encoding="application/x-tex">d_{queue} = \frac{L \times a}{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">q</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, avec <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> la taille du paquet, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> le taux d'arrivée des paquets et <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> le débit de sortie du noeud.</dd>
+<dd>Si le taux <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>a</mi><mi>R</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{a}{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0404em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6954em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> est supérieur à 1, la file d'attente est infinie.</dd>
+<dt>Temps de nodal processing</dt>
+<dd>Temps nécessaire pour traiter le paquet au niveau du noeud (d'où il vient, où il va, s'il y a des erreurs, etc.)</dd>
+<dt>Temps de transmission</dt>
+<dd>Temps nécessaire pour insérer le paquet sur le lien physique.</dd>
+<dd><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>t</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>m</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo>=</mo><mfrac><mi>L</mi><msub><mi>v</mi><mi>t</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">d_{transmition} = \frac{L}{v_t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">an</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">mi</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3174em;vertical-align:-0.4451em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2963em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4451em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, avec <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> la taille du paquet et <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">v_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> la vitesse de transmission du lien physique.</dd>
+<dt>Temps de propagation</dt>
+<dd>Temps nécessaire pour que le signal se propage d'un noeud à un autre.</dd>
+<dd><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>a</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></msub><mo>=</mo><mfrac><mi>d</mi><msub><mi>v</mi><mi>p</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">d_{propagation} = \frac{d}{v_p}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.4224em;vertical-align:-0.5423em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5423em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, avec <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span> la distance entre les deux noeuds et <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">v_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> la vitesse de propagation du signal (environ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">2 \times 10^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span>m/s dans un câble).</dd>
+<dt>Bande passante</dt>
+<dd>Taux de transmission maximal sur un lien de communication.</dd>
+<dt>Throughput</dt>
+<dd>Taux de transmission (bps) auquel les paquets sont <strong>actuellement</strong> transmis sur le réseau. Il peut être instantané ou moyen.</dd>
+</dl>
+</div>
+<h3 id="sécurité-du-réseau">Sécurité du réseau </h3>
+<div class="embed">
+<dl>
+<dt>Packet Sniffing</dt>
+<dd>Technique qui consiste à intercepter les paquets de données qui circulent sur un réseau (en se mettant sur le même réseau que la victime).</dd>
+<dt>IP Spoofing</dt>
+<dd>Technique qui consiste à usurper l'adresse IP d'un autre ordinateur pour se faire passer pour lui.</dd>
+<dt>Denial of Service (DoS)</dt>
+<dd>Attaque qui consiste à saturer un serveur en lui envoyant un grand nombre de requêtes. La bande passante est saturée et le serveur ne peut plus répondre aux requêtes légitimes.</dd>
+</dl>
+</div>
+<h3 id="modèle-osi">Modèle OSI </h3>
+<div class="embed">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Couche</th>
+<th style="text-align:left">Nom</th>
+<th style="text-align:left">Fonction</th>
+<th style="text-align:left">Protocoles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>Application</strong></td>
+<td style="text-align:left">Interface entre l'utilisateur et le réseau</td>
+<td style="text-align:left"><em>HTTP, FTP, SMTP, DNS</em></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>Transport</strong></td>
+<td style="text-align:left">Transmission des communications sur le réseau</td>
+<td style="text-align:left"><em>TCP, UDP</em></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>Réseau</strong></td>
+<td style="text-align:left">Identification de l'émetteur et du récepteur sur le réseau</td>
+<td style="text-align:left"><em>IP</em></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>Lien</strong></td>
+<td style="text-align:left">Transmission des signaux informatiques entre deux élements voisins</td>
+<td style="text-align:left"><em>Ethernet, 802.11(Wifi), PPP</em></td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>Physique</strong></td>
+<td style="text-align:left">Transmission des signaux informatiques entre deux élements</td>
+<td style="text-align:left"><em>Signaux électriques</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fonctionnement pour l'envoi d'un message (<u>Encapsulage</u>)</strong> :</p>
+<ul>
+<li>Il est crée dans la couche <strong>application</strong> (Message : [M])</li>
+<li>Il est encapsulé par la couche <strong>transport</strong> (Ajout de l'en-tête [Ht|M], l'en-tête peut être le nombre de bits, le numéro de séquence, etc.)</li>
+<li>La couche <strong>réseau</strong> précise l'IP... (Message : [Hn|Ht|M])</li>
+<li>La couche <strong>lien</strong> transmet le message sur le réseau (Message : [Hl|Hn|Ht|M])</li>
+<li>Le lien <strong>physique</strong> transmet le message (Message : 010101101011100)</li>
+</ul>
+<p><strong>Idem dans l'autre sens pour la réception du message (<u>Décapsulage</u>)</strong></p>
+<p><strong>S'il y a un intermédiaire</strong> :</p>
+<ul>
+<li>Les switches lisent la couche <strong>physique</strong> et <strong>lien</strong> pour savoir où envoyer le message</li>
+<li>Les routeurs lisent la couche <strong>physique</strong>, <strong>lien</strong> et <strong>réseau</strong> pour savoir où envoyer le message</li>
+</ul>
+<blockquote>
+<p>En théorie, ils ne peuvent pas lire le message (mais un hacker pourrait modifier son switch pour le faire)</p>
+</blockquote>
+</div>
+<hr>
+<h2 id="2-historique-dinternet">2. Historique d'Internet </h2>
+<h3 id="1961-1972--premiers-principes-de-packet-switching">1961-1972 : Premiers principes de packet-switching </h3>
+<ul>
+<li><strong>1961</strong> - Kleinrock publie le premier papier sur la théorie des files d'attente, qui montre l'efficacité du packet-switching.</li>
+<li><strong>1964</strong> - Baran propose un réseau décentralisé (qui permettrait de survivre à une attaque nucléaire).</li>
+<li><strong>1967</strong> - ARPAnet : Premier réseau à utiliser le packet-switching, financé par le département de la défense américain. et conçu par l'Advanced Research Projects Agency (ARPA).</li>
+<li><strong>1969</strong> - Premier réseau opérationnel ARPAnet.</li>
+<li><strong>1972</strong> - Démonstration publique d'ARPAnet.<br>
+NCP (Network Control Protocol) est le premier protocole host-host.<br>
+Premier programme de mail.<br>
+ARPAnet a 15 noeuds (= 15 périphériques connectés).</li>
+</ul>
+<h3 id="1972-1980--fonctionnement-inter-réseau-nouveaux-réseaux">1972-1980 : Fonctionnement inter-réseau, nouveaux réseaux </h3>
+<ul>
+<li><strong>1970</strong> : ALOHAnet (Université d'Hawaï) : Premier réseau sattelite.</li>
+<li><strong>1974</strong> : Cerf et Kahn publient le premier papier sur l'architecture des réseaux inter-connectés.</li>
+</ul>
+<dl>
+<dt><strong>Principes de fonctionnement de l'Internet de Cerf et Kahn</strong> :</dt>
+<dd>
+<ul>
+<li><em>Minimalisme, autonomie</em></li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>Ne pas garantir l'accès à tous les noeuds réseau en permanence</em></li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>Rooting non-étatique</em></li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li><em>Contrôle décentralisé de la ressource</em></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li><strong>1976</strong> : Ethernet (Xerox, Intel, DEC) : Premier réseau local.</li>
+<li><strong>1979</strong> : ARPAnet a 200 noeuds.</li>
+</ul>
+<h3 id="1980-1990--nouveaux-protocoles-prolifération">1980-1990 : Nouveaux protocoles, prolifération </h3>
+<ul>
+<li><strong>1982</strong> : Protocole <strong>SMTP</strong> (Simple Mail Transfer Protocol) : Premier protocole de mail.</li>
+<li><strong>1983</strong> : Déploloiement du <strong>TCP/IP</strong> (Transmission Control Protocol/Internet Protocol). Le <strong>DNS</strong> (Domain Name System) définit les traduction name-to-IP.</li>
+<li><strong>1985</strong> : Protocole <strong>FTP</strong> (File Transfer Protocol) : Premier protocole de transfert de fichiers.</li>
+<li><strong>1988</strong> : Ajout du contrôle de congestion TCP</li>
+</ul>
+<p><strong>Nouveaux réseaux nationaux</strong> : CSnet, BITnet, NSFnet, Minitel, etc.</p>
+<h3 id="1990-2000--commercialisation-croissance">1990-2000 : Commercialisation, croissance </h3>
+<ul>
+<li><strong>Débuts 90</strong> : ARPAnet est démantelé.</li>
+<li><strong>1991</strong> : Tim Berners-Lee (CERN) invente le <strong>World Wide Web</strong>. Le protocole <strong>HTTP</strong> (HyperText Transfer Protocol) et lu langage <strong>HTML</strong> (HyperText Markup Language) entrent dans le domaine public.</li>
+<li><strong>1993</strong> : Mosaic, premier navigateur web (deviendra Netscape puis Firefox).</li>
+<li><strong>Fin 90</strong> : Commercialisation du web, messageries instantanées, partage de fichiers <strong>P2P</strong> (piratage de jeux, de musique...), importance de la sécurité, 50M d'hébergeurs, 100M d'utilisateurs, mise à jour des infrastructures pour augmenter la bande passante.</li>
+</ul>
+<h3 id="2005-aujourdhui--changement-déchelle-cloud">2005-Aujourd'hui : Changement d'échelle, cloud </h3>
+<ul>
+<li>Les fournisseurs de services Internet (Google, Amazon, Facebook, etc.) fournissent des services "cloud".</li>
+<li>Les données ne sont plus stockées localement mais portées sur le réseau.</li>
+<li>Apparition du streaming</li>
+<li>18 milliards d'appareils connectés à Internet</li>
+</ul>
+<hr>
+<h2 id="3-couches-application-et-transport">3. Couches Application et Transport </h2>
+<h3 id="31-couche-application">3.1. Couche Application </h3>
+<ul>
+<li>
+<p><strong>Protocoles</strong> : HTTP, FTP, SMTP, DNS, etc.</p>
+</li>
+<li>
+<dl>
+<dt><strong>Paradiagme client-serveur</strong></dt>
+<dd>Le serveur héberge en permanence ("always-on") et a une adresse IP permanente (si ce n'est pas le cas, le serveur fait partie du dark web).</dd>
+<dd>Le client contacte et communique avec le serveur. Il peut être connecté de façon intermittente et peut avoir une adresse IP dynamique.</dd>
+<dd>Utilisé en HTTP, IMAP, FTP, etc.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Paradigme pair-à-pair (P2P)</strong></dt>
+<dd>Pas de serveur permanent, les pairs communiquent directement entre eux pour se fournir eux-même un service. Les pairs peuvent être connectés de façon intermittente.</dd>
+<dd>Utilisé pour le partage de fichiers (BitTorrent), la téléphonie (Skype), etc.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Comment deux applications communiquent ?</strong></dt>
+<dd>Les applications utilisent des <strong>sockets</strong> pour communiquer. Un socket est un point de communication entre deux programmes sur un réseau.</dd>
+<dd>Un socket est identifié par une adresse IP et un numéro de port.</dd>
+<dd>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Port</th>
+<th style="text-align:left">Protocole</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">80</td>
+<td style="text-align:left">Serveur HTTP</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left">Envoi de mail SMTP</td>
+</tr>
+<tr>
+<td style="text-align:left">465</td>
+<td style="text-align:left">Envoi de mail SMTPS (sécurisé)</td>
+</tr>
+<tr>
+<td style="text-align:left">20/21</td>
+<td style="text-align:left">Envoi de fichier via FTP</td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left">DNS</td>
+</tr>
+<tr>
+<td style="text-align:left">443</td>
+<td style="text-align:left">HTTPS</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dd>Un serveur a un socket pour chaque client, un client a un socket pour chaque serveur.</dd>
+<dd>Pour communiquer, il faut utiliser des couches de protocoles définis à l'avance (Type de message échangé, syntaxe (texte claire ? encrypté ? caractère de fin?), sémantique, etc.)</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>De quel transport a besoin une application ?</strong></dt>
+<dd>
+<dl>
+<dt><strong>Besoin d'intégrité des données</strong></dt>
+<dd>Certaines applications requièrent un transfert 100% fiable (fichiers, transactions), alors que d'autres non (appel audio, réunion vidéo).</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt><strong>Timing</strong></dt>
+<dd>Certaines applications requièrent un court délai (internet, téléphonie, jeux en ligne), alors que d'autres non (mail, transfert de fichiers).</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt><strong>Throughput</strong></dt>
+<dd>Certaines applications nécessitent une certaine bande passante (streaming vidéo, transfert de fichiers), alors que d'autres non (applications "élastiques").</dd>
+</dl>
+</dd>
+<dd><strong>Sécurité</strong></dd>
+</dl>
+</li>
+</ul>
+<h3 id="32-couche-transport">3.2. Couche Transport </h3>
+<ul>
+<li>
+<p><strong>Deux protocoles majeurs</strong> : TCP et UDP</p>
+</li>
+<li>
+<p><strong>UDP (User Datagram Protocol)</strong></p>
+<ul>
+<li>Non fiable,</li>
+<li>Ne vérifie pas qu'une connexion est possible avant d'envoyer les données,</li>
+<li>Ne fournit pas de contrôle de flux, de congestion, de sécurité,</li>
+<li>Plus rapide.</li>
+<li>Très peu utilisé (éventuellement pour le streaming à très grande échelle (diffusion de la NASA) et la téléphonie par Internet)</li>
+</ul>
+</li>
+<li>
+<p><strong>TCP (Transmission Control Protocol)</strong></p>
+<ul>
+<li>Fiable,</li>
+<li>Contrôle du flux,</li>
+<li>Contrôle de la congestion,</li>
+<li>S'assure <u>avant tout</u> que la connexion est possible,</li>
+<li>Connexion point à point (émetteur, récepteur) et bidirectionnelle,</li>
+<li>Ne fournit pas le service le plus rapide/sans latence, besoin d'une bande passante minimale, faible sécurité.</li>
+<li>Pas de cryptage, les mots de passe traversent Internet en clair.</li>
+</ul>
+</li>
+<li>
+<p><strong>TLS (Transport Layer Security)</strong></p>
+<ul>
+<li>Protocole de sécurité qui encrypte les connexions TCP.</li>
+<li>Utilisé dans HTTPS, SMTPS, etc.</li>
+<li>Implémenté dans la couche application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilisation des sockets</strong></p>
+<ul>
+<li>Création de l'illusion d'une connexion directe entre les deux applications.</li>
+</ul>
+<blockquote>
+<p><strong>Exemple de communication TCP :</strong></p>
+<ul>
+<li><strong>Serveur</strong> : Crée un socket, attend une demande de transaction.</li>
+<li><strong>Client</strong> : Crée un socket, demande une connexion au serveur en spécifiant l'adresse IP et le numéro de port.</li>
+<li><strong>Serveur</strong> : Accepte la connexion, crée un nouveau socket pour la communication avec le client.</li>
+<li><strong>Client</strong> : Reçoit l'accord du serveur et envoie le message.</li>
+<li><strong>Serveur</strong> : Reçoit le message sur son socket de connexion, envoie une réponse et ferme le socket de connexion.</li>
+<li><strong>Client</strong> : Reçoit la réponse et ferme le socket de connexion.</li>
+</ul>
+<p>(En UDP, il n'y a pas de connexion, le client envoie directement le message au serveur).</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Structure d'un segment TCP</strong> (<a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol#Structure_d&#39;un_segment_TCP">Page wikipédia</a>)</p>
+<ul>
+<li>Port source</li>
+<li>Port destinataire</li>
+<li>Numéro de séquence (numéro du premier octet du segment)</li>
+<li>Numéro d'acquittement (numéro du prochain octet attendu)</li>
+<li>Longueur de l'en-tête</li>
+<li>Fanions (flags) binaires :
+<ul>
+<li>flag A (ACK) == 1 signifie que le paquet contient un acquittement</li>
+<li>flag R (RST) demande un reset de la connexion</li>
+<li>flag S (SYN) contient une requête de connexion</li>
+<li>flag F (FIN) indique que le paquet est le dernier de la connexion</li>
+</ul>
+</li>
+<li>Checksum (vérification de l'intégrité du segment)</li>
+<li>Fenêtre de réception (nombre d'octets que le destinataire est prêt à accepter, pour ne pas le surcharger, voir le contrôle de flux)</li>
+<li>Pointeur d'urgence (optionnel, pour les données urgentes)</li>
+<li>Options TCP (facultatives)</li>
+<li>Données envoyées</li>
+</ul>
+</li>
+<li>
+<p><strong>RDT 3.0 (Reliable Data Transfer)</strong></p>
+<ul>
+<li>Solution trouvée pour améliorer le taux d'utilisation des liens (pour ne pas gaspiller de la bande passante).</li>
+<li><strong>Pipelining</strong> : Envoi de plusieurs paquets à la suite sans attendre l'acquittement de chacun. Le récepteur les valide tous d'affilée avant que l'émetteur puisse en envoyer d'autres.</li>
+<li><strong>Go-Back-N</strong> :
+<ul>
+<li>Consiste à envoyer x paquets à la fois. Lorsque le paquet n est acquitté, on décalle la fenêtre d'envoi à n+1 et on envoie le paquet suivant.</li>
+<li>Si on reçoit l'acquittement d'un paquet qui n'est pas le premier, c'est un acquittement cumulatif qui acquitte tous les paquets avant lui.</li>
+<li>Si on reçoit les paquets dans le désordre, on peut soit envoyer un acquittement pour le dernier paquet reçu (l'envoyeur aura un acquittement dupliqué = problème de transport), soit on attend un <strong>temps de garde</strong> pour laisser le temps de recevoir le paquet puis envoie un acquittement cumulatif si on le reçoit bien (un seul pour plusieurs pour réduire la charge sur réseau)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Définir le temps de garde TCP</strong></p>
+<ul>
+<li>Il doit être plus long que le RTT (Round Trip Time, temps mis par un paquet pour aller du client au serveur et revenir) pour éviter les acquittements dupliqués.</li>
+<li>S'il est trop long, le débit est réduit.</li>
+<li>S'il est trop court, des acquittements seront dupliqués inutilement.</li>
+<li>Pour estimer le RTT, on estime la vitesse du récepteur (dépend de sa vitesse de base et de sa charge). TCP contient un mécanisme de contrôle de flow (mécanisme de rétro-action qui permet au récepteur d'indiquer à l'émetteur de ralentir s'il est surchargé).</li>
+</ul>
+</li>
+<li>
+<p><strong>Connexion client-serveur</strong></p>
+<ul>
+<li>
+<p><strong>3-way handshake</strong> :</p>
+<ul>
+<li>Les sockets client et serveur sont en écoute (<em>LISTEN</em>)<br>
+<br></li>
+</ul>
+<p><strong>SYN</strong> :</p>
+<ul>
+<li>Le client envoie un message avec SYN=1 et Seq=x (<em>SYNSENT</em>)</li>
+</ul>
+<p><strong>SYN-ACK</strong> :</p>
+<ul>
+<li>Le serveur reçoit le message, et envoie un paquet avec SYN=1, ACK=1 et Seq=y, Acknum=x+1 (<em>SYNRCVD</em>)</li>
+</ul>
+<p><strong>ACK</strong> :</p>
+<ul>
+<li>Le client reçoit le message SYNACK(x), et envoie un paquet avec ACK=1 et Acknum=y+1 (<em>ESTAB</em>)</li>
+<li>Le serveur reçoit le message ACK(y), et la connexion est établie (<em>ESTAB</em>)</li>
+</ul>
+</li>
+</ul>
+  <!--
+      - **SYN** : Le client demande une connexion au serveur.
+      - **SYN-ACK** : Le serveur accepte la connexion et demande une connexion en retour.
+      - **ACK** : Le client accepte la connexion.
+  -->
+</li>
+<li>
+<p><strong>Fermeture de connexion</strong></p>
+<ul>
+<li>
+<p><u>Problème</u> : Si le client ferme la connexion, le serveur ne le sait pas et continue d'envoyer des données.</p>
+</li>
+<li>
+<p><u>Solution</u> :</p>
+<ul>
+<li>Le client et le serveur ferment leur connexion en envoyant un <strong>FIN</strong> chacun.</li>
+<li>Le serveur envoie un <strong>ACK</strong> pour confirmer la fermeture de la connexion.</li>
+<li>Le client envoie un <strong>ACK</strong> pour confirmer la fermeture de la connexion.</li>
+<li>La connexion a été fermée en simultané !</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<dl>
+<dt><strong>Congestion</strong></dt>
+<dd>
+<p>La congestion se manifeste par des délais de traitement (RTT) beaucoup plus longs et par des pertes de paquets.</p>
+</dd>
+<dd>
+<p><strong>Scénario simple</strong> :</p>
+<ul>
+<li>Deux émetteurs veulent se partager un lien avec une certaine capacité R,</li>
+<li>Si la somme des paquets envoyés par les deux émetteurs ne dépasse pas R, on peut continuer à envoyer,</li>
+<li>Sinon, le délai augmente progressivement jusqu'à devenir infini pour chaque nouveau paquet envoyé.</li>
+</ul>
+</dd>
+<dd>
+<p><strong>Scénario complexe</strong> :</p>
+<ul>
+<li>Dans un réseau de plusieurs routeurs, certains commencent à saturer, le débit augmente alors progressivement dans les autres jusqu'à une chute brutale (<em>congestion collapse</em>),</li>
+<li>La seule solution pour résoudre le problème est de redémarrer <u>tous</u> les routeurs du réseau/d'Internet :(</li>
+<li>Aujourd'hui, les routeurs doivent réduire automatiquement leur débit en cas de problème pour éviter le <em>congestion collapse</em>.</li>
+</ul>
+</dd>
+<dd>
+<p><strong>Contrôle de congestion TCP</strong> :</p>
+<ul>
+<li><strong>Approche AIMD (Additive Increase/Multiplicative Decrease)</strong> :
+<ul>
+<li><strong>Additive Increase</strong> : Augmentation linéaire du débit tant que le réseau n'est pas saturé,</li>
+<li><strong>Multiplicative Decrease</strong> : Réduction du débit de moitié en cas de congestion.</li>
+<li><u>Problème</u> : TCP teste constamment la limite du réseau, ce qui consomme des ressources.<br>
+<br></li>
+</ul>
+</li>
+<li><strong>Mécanisme Slow Start</strong> :
+<ul>
+<li>Augmentation <strong>exponentielle</strong> du débit tant que le réseau n'est pas saturé (càd jusqu'au premier paquet perdu)</li>
+<li>Quand on se rapproche du seuil (ssthresh), on passe en <strong>congestion avoidance</strong> (augmentation linéaire)</li>
+<li>Si on perd un paquet, on recommence tout.<br>
+<br></li>
+</ul>
+</li>
+<li><strong>Mécanisme Fast Retransmit</strong> :
+<ul>
+<li>Le débit monte exponentiellement comme dans Slow Start, mais si on perd un paquet il redescend au seuil puis il remonte de façon linéaire.</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<h3 id="33-fonctionnement-dune-application-sur-internet">3.3. Fonctionnement d'une application sur Internet </h3>
+<h4 id="331-applications-web-http">3.3.1. Applications WEB, HTTP </h4>
+<dl>
+<dt><strong>HTML</strong> (HyperText Markup Language)</dt>
+<dd>
+<p>Langage de balisage pour la création de pages web.</p>
+</dd>
+<dt><strong>HTTP</strong> (HyperText Transfer Protocol)</dt>
+<dd>
+<p>Protocole de transfert de données sur le web.</p>
+</dd>
+<dd>
+<p>Utilise le protocole TCP (port 80) pour transférer les données.</p>
+</dd>
+<dd>
+<p>Deux versions du protocole HTTP :</p>
+<ul>
+<li>Persistent HTTP : Le serveur garde la connexion ouverte entre plusieurs demandes de ressources.</li>
+<li>Non-persistent HTTP : La connexion doit être rétablie pour chaque demande.</li>
+</ul>
+</dd>
+<dt><strong>URL</strong> (Uniform Resource Locator)</dt>
+<dd>
+<p>Adresse qui permet d'identifier de façon uniforme une ressource sur Internet.</p>
+</dd>
+<dd>
+<p><em>Exemple</em> : Dans l'URL : <em><a href="http://www.quelquechose.fr/fichier/ressource.pdf">www.quelquechose.fr/fichier/ressource.pdf</a></em>,</p>
+<ul>
+<li>"<em><a href="http://www.quelquechose.fr/">www.quelquechose.fr</a></em>" est le serveur web</li>
+<li>"<em>/fichier/ressource.pdf</em>" est la ressource</li>
+</ul>
+</dd>
+<dt><strong>Message de requête HTTP</strong></dt>
+<dd>
+<ul>
+<li>Types de requêtes :
+<ul>
+<li><strong>GET</strong> : Envoie des données au serveur via l'URL.</li>
+<li><strong>POST</strong> : Envoie des données au serveur via le corps du message HTTP.</li>
+<li><strong>HEAD</strong> : Demande uniquement les données d'en-tête.</li>
+<li><strong>PUT</strong> : Upload un nouvel objet sur le serveur.</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>Codes de statut HTTP :
+<ul>
+<li>200 : OK</li>
+<li>301 : Le fichier n'existe plus</li>
+<li>400 : Requête mal formulée (GET sans URL par exemple)</li>
+<li>404 : Fichier introuvable</li>
+<li>505 : Version HTTP non supportée</li>
+<li>418 : I'm a teapot :)</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dd>
+<p>Sur linux, on peut tester une connexion HTTP avec la commande <code>nc</code> (netcat) :</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>% <span class="token function">nc</span> <span class="token parameter variable">-c</span> <span class="token parameter variable">-v</span> www.polytech.univ-smb.fr <span class="token number">80</span>
+% GET / HTTP/1.1 Host: www.polytech.univ-smb.fr
+</code></pre></dd>
+<dt><strong>Cookies</strong></dt>
+<dd>
+<p>Utilisés pour garder la trace des connexions précédentes</p>
+</dd>
+<dd>
+<p>Le fichier cookie est stocké sur le client mais le serveur sait reconnaitre l'identifiant et le recoller à des informations client</p>
+</dd>
+<dd>
+<p>Les cookies peuvent servir pour l'authentification, les paniers, les recommendations, garder un état dans la communication entre un client et un serveur</p>
+</dd>
+<dd>
+<p>Les tracking cookies peuvent être accédés par d'autres sites (facebook peut voir qu'on est allé sur un site pour mettre des pubs (mais les navigateurs le bloquent normalement))</p>
+</dd>
+<dt><strong>Cache web</strong></dt>
+<dd>
+<p>Stockage temporaire des pages web pour accélérer leur affichage.</p>
+</dd>
+<dd>
+<p>Si la ressource demandée est dans le cache, le navigateur l'envoie directement au client. Sinon, il la demande au serveur et la stocke dans le cache.</p>
+</dd>
+</dl>
+<h4 id="332-applications-de-messagerie-smtp-imap">3.3.2. Applications de messagerie, SMTP, IMAP </h4>
+<p><strong>Trois compostantes</strong> :</p>
+<ul>
+<li><u>Utilisateur</u> (client) : Celui qui se connecte au serveur de mail (Outlook, iPhone mail, pas les webmails du coup).</li>
+<li><u>Serveurs de mail</u></li>
+<li><u>Protocoles</u> :
+<ul>
+<li>
+<p><strong>SMTP</strong> (Simple Mail Transfer Protocol) :</p>
+<ul>
+<li>Vieux protocole,</li>
+<li>Besoin de fiabilité (le mail doit arrivé comme il est parti),</li>
+<li>Transfert direct, de serveur (qui agit comme un client) à serveur destinataire,</li>
+<li>Trois étapes (handshaking, transfer, closure)</li>
+<li>HTTP = client pull, SMTP = serveur push</li>
+<li>Contenu du mail : en-tête (de, à, sujet, date) et corps, tout en ASCII et réponses en codes de statut.</li>
+</ul>
+</li>
+<li>
+<p><strong>IMAP</strong> (Internet Message Access Protocol) :</p>
+<ul>
+<li>Permet l'extraction des mails depuis le serveur.</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP</strong> :</p>
+<ul>
+<li>Utilisé pour les webmails (Gmail, Yahoo, universitaire, etc.)</li>
+<li>Permet de lire les mails depuis le serveur.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="333-domain-name-system-dns">3.3.3. Domain Name System (DNS) </h4>
+<ul>
+<li>Permet de résoudre une adresse (convertir son nom d'hôte en adresse IP).</li>
+<li>Il n'y a pas une résolution par connexion à un site Internet, le navigateur garde en cache les adresses IP des sites fréquemment visités.</li>
+<li>Pour identifier une adresse sur le réseau, on utilise l'adresse IPv4 (32 bits) ou IPv6 (128 bits).</li>
+<li>Les noms de domaine principaux (.fr, .uk, .tv...) sont gérés par l'ICANN (Internet Corporation for Assigned Names and Numbers).</li>
+</ul>
+<p><strong>Pourquoi ne pas utiliser un DNS centralisé ?</strong></p>
+<ul>
+<li>Un seul point pour faire tomber Internet,</li>
+<li>Beaucoup trop de trafic pour un seul serveur,</li>
+<li>Difficile à maintenir.</li>
+</ul>
+<p><strong>Importance des DNS</strong></p>
+<ul>
+<li>Actuellement plusieurs trillions de requêtes DNS par jour,</li>
+<li>Besoin de réponses rapides,</li>
+<li>Millions de sous-serveurs DNS pour les organisations (<em>polytech par exemple</em>).</li>
+</ul>
+<h4 id="334-architecture-peer-to-peer-p2p">3.3.4. Architecture peer-to-peer (P2P) </h4>
+<p><em>Exemples : BitTorrent pour les fichiers, Skype pour le VoIP</em></p>
+<ul>
+<li>Les pairs communiquent directement entre eux pour se fournir eux-même un service.</li>
+<li>Les pairs peuvent être connectés de façon intermittente.</li>
+<li>Pas de serveur permanent.</li>
+<li>Plus il y a de pairs qui partagent un fichier, plus il est rapide à télécharger.</li>
+<li><em>Sur BitTorrent, un fichier est divisé en segments de 256kb et les pairs s'échangent les segments.</em></li>
+</ul>
+<h4 id="335-streaming-vidéo">3.3.5. Streaming vidéo </h4>
+<p><em>Netflix, Prime Vidéo, YouTube = 80% du trafic des ISP résidentiels</em></p>
+<hr>
+<h2 id="4-couche-réseau">4. Couche Réseau </h2>
+<blockquote>
+<p>La <strong>couche réseau</strong> s'exécute sur chacune des machines sur le réseau<br>
+Un routeur est le système qui décide quelle machine doit recevoir le paquet en fonction de l'en-tête IP,</p>
+</blockquote>
+<div class="embed">
+<dl>
+<dt><strong>Fonctionnalités de la couche réseau</strong></dt>
+<dd><strong>Forwarding</strong> : Décider de la sortie d'un paquet reçu en entrée.</dd>
+<dd><strong>Routing</strong> : Déterminer la route prise par un paquet de la source à la destination.</dd>
+<dd><strong>Data Plane</strong> : Partie du routeur qui s'exécute localement pour déterminer comment le datagramme doit être transmis du port d'entrée du routeur au port de sortie.</dd>
+<dd><strong>Control Plane</strong> : Partie du routeur qui s'exécute sur le réseau pour déterminer la route que le datagramme doit prendre.</dd>
+<dd><strong>Table de commutation/de routage</strong> : Table qui contient les adresses IP des machines connectées au routeur et les ports de sortie correspondants. Elle est mise à jour par le protocole de routage et chaque routeur a sa propre table.</dd>
+</dl>
+</div>
+<br>
+<ul>
+<li>
+<p><strong>Modèle de service réseau</strong> :</p>
+<ul>
+<li>Garantie d'intégrité, de conservation de l'ordre des paquets, de délai faible...</li>
+<li>Internet (IP) → Modèle <strong>"Best Effort"</strong>, aucune garantie de délai, de livraison et de conservation de l'ordre.</li>
+<li>Asynchronous Transfer Mode (ATM) → Modèle <strong>Constant Bit Rate</strong> (CBR), garantie de délai, d'intégrité et de conservation de l'ordre.</li>
+<li>Le modèle "Best Effort" est le plus utilisé car il est plus simple et plus rapide (il faut uniquement gérer la bande passante).</li>
+</ul>
+</li>
+<li>
+<p><strong>Routeur</strong> :</p>
+<ul>
+<li>
+<p>Utilise les signaux pour transporter l'information (<strong>Modulation</strong> = adaptation d'une onde pour qu'elle transporte un signal)</p>
+</li>
+<li>
+<p>La première fonction de la carte de réception/émission est de démoduler le signal pour lire le message,</p>
+</li>
+<li>
+<p>Un composant gère la mémoire du port, pour traiter l'information d'où aiguiller le message,</p>
+</li>
+<li>
+<p>Entre les ports, il y a un switch haute-vitesse</p>
+</li>
+<li>
+<p>Le tout (+ la mémoire) est controlé par un <em>rooting processor</em> du routeur,</p>
+</li>
+<li>
+<p>Le controle du routeur ne s'exécute que quand il y a un changement de rootage (quand il y a un changement sur le réseau) en quelques milisecondes,</p>
+</li>
+<li>
+<p>Le transfert de données s'opère en quelques nanosecondes,</p>
+</li>
+<li>
+<p>Schéma du port d'input :</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>    | couche physique : reçoit les bits
+    | couche lien : Ethernet 
+    V Switching décentralisé : utilise les headers, puis envoie au port de sortie
+</code></pre></li>
+<li>
+<p>Le routage avec une autre adresse IP se fait avec le <em>"longest prefix match"</em> (on envoie le message vers l'adresse IP avec le plus de premiers caractères qui correspondent aux premiers caractères de l'adresse IP de destination)</p>
+</li>
+<li>
+<p>Le problème, c'est de faire ça très rapidement (car les données mettent seulement 1ns à être transferées)</p>
+</li>
+<li>
+<p><strong>Comment envoyer un paquet du port d'entrée au port de sortie ?</strong></p>
+<ul>
+<li><strong>Mémoire partagée</strong> : Les paquets sont stockés dans une mémoire partagée, le routeur lit les paquets et les copie directement dans le port de sortie (jusqu'à quelques Gpbs)</li>
+<li><strong>Bus</strong> : Utilisation d'un bus pour transposer les paquets du port d'entrée au port de sortie (jusqu'à quelques dizaines de Gpbs)</li>
+<li><strong>Matrice d'interconnexions</strong> : Ensemble de liens d'interconnexion qui construisent une matrice pour faire des transferts en parallèle, mais il faut que les paquets envoyés en parallèle aient des chemins différents.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocole IP</strong> :</p>
+<ul>
+<li>
+<p>Format datagramme IP : principalement des entetes,</p>
+</li>
+<li>
+<p>Intérêt à envoyer des longs messages car les en-têtes sont envoyés à chaque fois,</p>
+</li>
+<li>
+<p>Interface : connexion entre la machine et un routeur, une machine peut avoir plusieurs interfaces,</p>
+</li>
+<li>
+<p>Un réseau local donne des adresses <strong>IP locales</strong> aux machines,</p>
+</li>
+<li>
+<p>Adresse <strong>CIDR</strong> = Adresse de la forme a.b.c.d/x avec x la longueur du masque,</p>
+</li>
+<li>
+<p>Pour avoir une adresse IP : au niveau local c'est le DHCP. Au niveau continental c'est le RIPE pour l'europe.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Routage</strong> :<br>
+<em>Objectif : Déterminer les "bons" chemins entre un émetteur et un récepteur (qui minimisent un critère de "cout" (temps, distance, énergie consommée...))</em></p>
+  <div class="embed">
+<dl>
+<dt>Approche centralisée</dt>
+<dd>Un système décide pour tous les routages, il a toutes les informations du réseau.donc il peut mieux choisir les routes.</dd>
+<dt>Approche décentralisée</dt>
+<dd>Chaque système construit ses propres tables de routage et décide de ses routes. Réseaux de plusieurs routeurs.</dd>
+</dl>
+  </div>
+  <br>
+<p><strong>Algorithmes de routage</strong> :</p>
+<ul>
+<li>
+<p><strong>Global/Centralisé</strong> : Tous les routeurs ont une topologie complète du réseau (très couteux).</p>
+</li>
+<li>
+<p><strong>Décentralisé</strong> : Processus itératif où chaque routeur échange des informations avec ses voisins pour construire sa table de routage (moins couteux mais plus complexe)</p>
+</li>
+<li>
+<p><strong>Statique</strong> : Les routes sont déterminées à l'avance et ne changent pas (très rapide mais pas très pratique).</p>
+</li>
+<li>
+<p><strong>Dynamique</strong> : Les routes sont déterminées en temps réel en fonction de la charge du réseau (plus lent mais plus efficace).</p>
+</li>
+</ul>
+<p><strong>Calcul des distances entre les routeurs</strong> :</p>
+  <div class="embed">
+<ul>
+<li>
+<p><strong>Algorithme de Dijkstra</strong> (link-state routing protocol) :</p>
+<ul>
+<li><strong>Centralisé</strong> : Compute les chemins les moins couteux depuis un noeud, itératif (<em>au bout de k itérations, on connait k chemins</em>)</li>
+<li><strong>Linéaire</strong> : Chaque noeud est visité une fois, on ne revient pas en arrière.</li>
+<li><strong>Complexité</strong> : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>, réduit à <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> en implémentant un arbre binaire rouge et noir (<em>Red-Black Tree</em>).<br>
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Algorithme de Bellman-Ford</strong> (distance vector routing protocol) :</p>
+<ul>
+<li>Calcule les plus courts chemins en demandant à ses voisins les distances, puis en les mettant à jour, de manière itérative.</li>
+<li>Les tables de routage sont demandées régulièrement pour être mises à jour.</li>
+<li>La propagation de l'algorithme est convergente, il est prouvé que le chemin obtenu au final sera le plus court et chaque noeud n'est computé qu'une seule fois.</li>
+<li>Algorithme très robuste mais qui peut prendre du temps (<em>Quand une connexion Internet saute, il peut se passer plusieurs minutes avant que le reste du réseau s'en rende compte</em>)</li>
+</ul>
+</li>
+</ul>
+  </div>
+  <br>
+<p><strong>Systèmes autonomes (AS)</strong> :</p>
+<ul>
+<li>Un système autonome est un ensemble de routeurs qui sont sous le contrôle d'une seule entité administrative (typiquement un FAI).</li>
+<li>Internet est composé de nombreux systèmes autonomes qui sont interconnectés.</li>
+<li>Les routeurs connectés à l'exérieur de l'AS sont les seuls à avoir des communications hors du domaine.</li>
+<li>Le routage sur Internet consiste à prendre les paquets sur Internet, les envoyer à la <strong>gateway</strong> de l'AS, puis les router à l'<strong>intérieur de l'AS</strong> jusqu'à la destination.</li>
+</ul>
+  <br>
+<p><strong>Border Gateway Protocol (BGP)</strong> :</p>
+<ul>
+<li>
+<p>C'est la connexion interdomaine de facto. Ce protocole permet à une AS (un routeur) d'informer ses voisins et de signaler qu'il est prêt à accepter des paquets pour certaines destinations (dans les faits, il donne le masque d'adresses accessibles à travers lui).</p>
+</li>
+<li>
+<p><strong>Messages BGP</strong> :</p>
+<ul>
+<li><strong>OPEN</strong> : Ouverture de la connexion, échange des paramètres de routage (numéros d'AS, ID de routeurs, capacités des pairs...).</li>
+<li><strong>UPDATE</strong> : Annonce des routes, retrait des routes, mise à jour des routes.</li>
+<li><strong>KEEPALIVE</strong> : Maintient la connexion ouverte (<em>Envoyé toutes les 30 secondes par défaut, et un délai de 90 secondes sans UPDATE ou KEEPALIVE ferme la connexion</em>).</li>
+<li><strong>NOTIFICATION</strong> : Fermeture de la connexion, erreur de routage, etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Attributs BGP</strong> :</p>
+<ul>
+<li><strong>AS-PATH</strong> : Liste des AS traversés par le paquet.</li>
+<li><strong>NEXT-HOP</strong> : Adresse IP du prochain routeur.</li>
+<li><strong>LOCAL-PREF</strong> : Préférence locale pour une route.</li>
+<li><strong>MED</strong> : <em>Multi-Exit Discriminator</em>, utilisé pour choisir la sortie d'un AS.</li>
+<li><strong>COMMUNITIES</strong> : Liste d'AS qui ont des politiques de routage similaires.</li>
+<li><strong>ORIGIN</strong> : Origine de la route (IGP, EGP, INCOMPLETE).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
