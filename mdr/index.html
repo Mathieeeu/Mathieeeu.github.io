@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clique frr</title>
+    <style>
+        html {
+            background-color: #333;
+        }
+        .cible {
+            position: absolute;
+            border: 1px solid black;
+            border-radius: 100%;
+        }
+        #score {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            user-select: none;
+        }
+        #average {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            user-select: none;
+        }
+        #menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+        #menu input {
+            margin: 5px;
+        }
+        #finalScore {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Configuration du jeu</h1>
+        <label for="minSize">Taille minimale des cercles:</label>
+        <input type="number" id="minSize" value="10"><br>
+        <label for="maxSize">Taille maximale des cercles:</label>
+        <input type="number" id="maxSize" value="50"><br>
+        <label for="timeLimit">Durée de vie des cercles (ms):</label>
+        <input type="number" id="timeLimit" value="5000"><br>
+        <label for="buttonCount">Nombre de cercles:</label>
+        <input type="number" id="buttonCount" value="5"><br>
+        <button onclick="startGame()">Jouer</button><br>
+        <button onclick="startEasy()">Jouer en facile</button>
+        <button onclick="startMedium()">Jouer en moyen</button>
+        <button onclick="startHard()">Jouer en difficile</button>
+        <div id="finalScore" style="display: none;"></div>
+    </div>
+    <div id="score" style="display: none;">0</div>
+    <div id="average" style="display: none;">0 CPS</div>
+    <script src="aim.js"></script>
+</body>
+</html>
