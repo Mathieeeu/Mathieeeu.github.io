@@ -39,7 +39,7 @@ body {
     transform: translateX(10px);
 }
 
-#polyrithms {
+#polyrithms-box {
     background-image: url('icons/polyrithms.png');
     background-size: cover;
     background-position: center;
