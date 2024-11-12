@@ -39,7 +39,7 @@ body {
     transform: translateX(10px);
 }
 
-.box:nth-child(2) {
+.box:nth-child(1) {
     background-image: url('icons/polyrithms.png');
     background-size: cover;
     background-position: center;
