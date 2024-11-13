@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Mathieu\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\doche\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -112,7 +112,11 @@ Cependant, en HTTP, les identfiants sont visibles dans <code>Credentials</code> 
 <p>On peut afficher les <strong>routes</strong> avec la commande :</p>
 <pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-route">route</span> <span class="token parameter attr-name">-n</span> </span>
 </code></pre><p>Résultat :</p>
-<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-192">192</span>.<span class="token number">168</span>.<span class="token number">141</span>.<span class="token number">0</span>/<span class="token number">24</span> dev eth0 proto kernel scope link src <span class="token number">192</span>.<span class="token number">168</span>.<span class="token number">141</span>.<span class="token number">101</span></span>
+<pre data-role="codeBlock" data-info="py" class="language-python py"><code><span class="token number">192.168</span><span class="token number">.141</span><span class="token number">.0</span><span class="token operator">/</span><span class="token number">24</span> dev eth0 proto kernel scope link src <span class="token number">192.168</span><span class="token number">.141</span><span class="token number">.101</span>
+</code></pre></dd>
+<dd>
+<p>On peut ajouter une <strong>route</strong> avec la commande :</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-route">route</span> add -net ip_cible netmask <span class="token number">255</span>.<span class="token number">255</span>.<span class="token number">255</span>.<span class="token number">255</span> gw ip_passerelle eth0</span>
 </code></pre><p>On ne peut ping une machine que si on a une route vers cette machine. Si on n'a pas de route, on reçoit un message <code>Destination Host Unreachable</code>.</p>
 </dd>
 </dl>
