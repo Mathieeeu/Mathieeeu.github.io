@@ -131,6 +131,13 @@ Cependant, en HTTP, les identfiants sont visibles dans <code>Credentials</code> 
 </code></pre></li>
 </ul>
 <p>-&gt; En gros le serveur enregistre les machines avec lesquelles il a déjà communiqué pour ne pas avoir à résoudre l'adresse MAC à chaque fois.</p>
+<ul>
+<li>
+<p>Pour faire une <strong>capture sur Wireshark</strong> sous Linux</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-tcpdump">tcpdump</span> (<span class="token parameter attr-name">-i</span> eth0</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>-s taille max<span class="token punctuation">)</span> -w capture.cap
+<span class="token comment">:: CTRL+C pour arrêter la capture</span>
+</code></pre></li>
+</ul>
 <hr>
 <h2 id="tp4---firewall">TP4 - Firewall </h2>
 <p><strong>Configuration des interfaces d'une <u>machine</u> (<em>pc1.startup</em>)</strong><br>
