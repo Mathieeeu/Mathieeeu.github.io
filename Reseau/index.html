@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction aux Réseaux</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Introduction aux Réseaux</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Définitions</h2>
+            <p><strong>BIT</strong> = Binary unIT (unité binaire :).</p>
+            <p><strong>Internet</strong> = réseau de réseaux.</p>
+            <p><strong>Cable ethernet</strong> = cable de paires torsadées (twisted pair).</p>
+            <p><strong>Rootage</strong> = trouver le bon chemin (sur plusieurs possibles comme sur Maps).</p>
+            <p><strong>Forwarding</strong> = guider (dire chaque sortie de rond-point :).</p>
+        </section>
+
+        <section>
+            <h2>Packet-switching</h2>
+            <p>Utilisé sur internet :</p>
+            <ul>
+                <li>Store-and-forward (si noeud dispo) :</li>
+                <ul>
+                    <li>Délai de transmission de paquet : prend L/R secondes à transmettre avec des paquets de L bits à R bps.</li>
+                    <li>Store and forward : introduit de nouveaux délais.</li>
+                </ul>
+                <li>Queueing (si noeud pas dispo) :</li>
+                <ul>
+                    <li>Les paquets sont mis en liste d'attente (queue) en attente de transmission.</li>
+                    <li>S'il est quand même saturé, il ignore les paquets entrants et ils sont perdus !</li>
+                </ul>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Internet</h2>
+            <p>Un réseau de réseaux complexe influencé par l'économie et les politiques nationales.</p>
+        </section>
+        
+        <section>
+            <h2>Performances</h2>
+            <ul>
+                <li>Les pertes de données se font lorsque la file d'attente est pleine.</li>
+                <li>Définitions :</li>
+                <ul>
+                    <li>Temps de d'attente (queueing delay) = Longueur du paquet (bits) * Taux d'arrivée des paquets / Taux de transmission du lien (bps).</li>
+                    <li>Temps de nodal processing : Temps qu'il faut pour le noeud de déterminer d'où vient le paquet, où il va, s'il y a une erreur...</li>
+                    <li>Temps de transmission = Longueur des paquets (bits) / Vitesse de transmission du lien physique (bps).</li>
+                    <li>Temps de propagation = Longueur du lien physique (m) / Vitesse de propagation (~2x10^8 m/s).</li>
+                </ul>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Sécurité du réseau</h2>
+            <ul>
+                <li>Problématique récente (25-30 ans) avec le déploiement d'internet.</li>
+                <li>Protocoles mis en place pour chaque type de transmission (communications, liens privés, informations...).</li>
+                <li>Packet-sniffing : Écoute des communications (en se mettant sur le même câble, réseau wifi...).</li>
+                <li>IP spoofing : Injection de paquets en utilisant une fausse adresse (pur espionnage ça).</li>
+                <li>Denial of Service : Rend la bande passante indisponible pour du trafic normal sur un serveur.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Modèle en "couches" de protocoles</h2>
+            <p>Pourquoi faire des couches ? Plus efficace : on sait qui fait quoi en gros.</p>
+            <ul>
+                <li><strong>Modèle ISO/OSI</strong></li>
+                <ul>
+                    <li>Physique : Transmission des signaux informatiques sur deux éléments (signaux électriques).</li>
+                    <li>Lien : Transfert du signal entre deux éléments voisins (Ethernet, 802.11(Wifi), PPP).</li>
+                    <li>Réseau : Identification de l'émetteur/recepteur sur le réseau (IP).</li>
+                    <li>Transport : Transmission des communications sur le réseau (TCP, UDP).</li>
+                    <li>Application : Tout ce qui utilise les paquets reçus pour en faire autre chose (HTTP, IMAP, SMTP, DNS).</li>
+                </ul>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
+
+
