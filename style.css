@@ -47,6 +47,7 @@ body {
     flex-direction: column;
     justify-content: top;
     gap: 12px;
+    max-width: 600px
 }
 
 .item {
