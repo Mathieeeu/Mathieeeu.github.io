@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    width: calc(100% - 20px);
+    width: calc(100% - 30px);
     height: calc(100% - 20px);
     border: 2px solid var(--light-purple);
     background-color: var(--dark-gray);
