@@ -15,16 +15,17 @@
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
-      </style>
-      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+    </style>
+    
+    <!-- The content below will be included at the end of the <head> element. --><html><head><script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function () {
     // your code here
   });
-</script></head><body for="html-export">
-    
-    
-      <div class="crossnote markdown-preview  ">
-      
+</script></head><body></body></html>
+  </head>
+  <body for="html-export">
+    <div class="crossnote markdown-preview">
+    <html><head></head><body><div>
 <style>
     .embed {
         background-color: #f7f7f7;
@@ -41,9 +42,9 @@
         border: 1px solid #e0e0e0;
     }
 </style>
-<h1 id="info743---réseaux-et-systèmes-répartis">INFO743 - Réseaux et Systèmes Répartis </h1>
+<h1 id="info743---réseaux-et-systèmes-répartis" ebook-toc-level-1="" heading="INFO743 - Réseaux et Systèmes Répartis ">INFO743 - Réseaux et Systèmes Répartis </h1>
 <hr>
-<h2 id="tp1---introduction-aux-sockets">TP1 - Introduction aux sockets </h2>
+<h2 id="tp1---introduction-aux-sockets" ebook-toc-level-2="" heading="TP1 - Introduction aux sockets ">TP1 - Introduction aux sockets </h2>
 <dl>
 <dt>Création d'un socket (Java)</dt>
 <dd>
@@ -64,7 +65,7 @@
 </dd>
 </dl>
 <hr>
-<h2 id="tp2---wireshark">TP2 - Wireshark </h2>
+<h2 id="tp2---wireshark" ebook-toc-level-2="" heading="TP2 - Wireshark ">TP2 - Wireshark </h2>
 <dl>
 <dt>Capture HTTP</dt>
 <dd>
@@ -90,7 +91,7 @@ Cependant, en HTTP, les identfiants sont visibles dans <code>Credentials</code> 
 </dd>
 </dl>
 <hr>
-<h2 id="tp3---configuration-de-réseau-et-routage">TP3 - Configuration de réseau et routage </h2>
+<h2 id="tp3---configuration-de-réseau-et-routage" ebook-toc-level-2="" heading="TP3 - Configuration de réseau et routage ">TP3 - Configuration de réseau et routage </h2>
 <dl>
 <dt>Configuration d'une interface réseau</dt>
 <dd>
@@ -139,7 +140,7 @@ Cependant, en HTTP, les identfiants sont visibles dans <code>Credentials</code> 
 </code></pre></li>
 </ul>
 <hr>
-<h2 id="tp4---firewall">TP4 - Firewall </h2>
+<h2 id="tp4---firewall" ebook-toc-level-2="" heading="TP4 - Firewall ">TP4 - Firewall </h2>
 <p><strong>Configuration des interfaces d'une <u>machine</u> (<em>pc1.startup</em>)</strong><br>
 <em>(<u>Idem pour webserver et sqlserver</u>)</em></p>
 <pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-ifconfig">ifconfig</span> eth0 <span class="token number">1</span>.<span class="token number">2</span>.<span class="token number">3</span>.<span class="token number">2</span> netmask <span class="token number">255</span>.<span class="token number">255</span>.<span class="token number">255</span>.<span class="token number">0</span> up</span>
@@ -160,18 +161,48 @@ Cependant, en HTTP, les identfiants sont visibles dans <code>Credentials</code> 
 <pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-L</span></span>
 </code></pre><p><strong>Blocage des paquets ICMP</strong> entre deux machines</p>
 <pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-A</span> FORWARD <span class="token parameter attr-name">-p</span> icmp <span class="token parameter attr-name">-s</span> &lt;adresse source&gt; <span class="token parameter attr-name">-d</span> &lt;adresse destination&gt; <span class="token parameter attr-name">-j</span> DROP</span>
-</code></pre><p><strong>Retrait</strong> de la règle de blocage :</p>
+</code></pre><p><strong>Retrait</strong> de la règle de blocage</p>
 <pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-D</span> FORWARD <span class="token parameter attr-name">-p</span> icmp <span class="token parameter attr-name">-s</span> &lt;adresse source&gt; <span class="token parameter attr-name">-d</span> &lt;adresse destination&gt; <span class="token parameter attr-name">-j</span> DROP</span>
 </code></pre><hr>
+<h2 id="projet-cyber-sécurité" ebook-toc-level-2="" heading="Projet cyber-sécurité ">Projet cyber-sécurité </h2>
+<p><strong>Autoriser l'utilisation de l'internet réel par la machine virtuelle (<em>lab.conf</em>)</strong></p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-firewall">firewall</span>[bridged]=<span class="token string">"true"</span></span>
+</code></pre><p><strong>Ajout d'un serveur DNS</strong> (sur le firewall et tous les utilisateurs)</p>
+<p>On ajoute l'adresse l'adresse IP du serveur DNS (ici celui de Google) dans le fichier <code>resolv.conf</code> de chaque machine utilisateur :</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-echo">echo</span> <span class="token string">"nameserver 8.8.8.8"</span> | tee <span class="token parameter attr-name">-a</span> /etc/resolv.conf</span>
+</code></pre><p><strong>Activer le forwarding IP</strong> (sur le firewall) :</p>
+<p>Le forwarding IP permet de rediriger les paquets d'une interface à une autre sur une même machine.</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-echo">echo</span> <span class="token number">1</span> &gt; /proc/sys/net/ipv4/ip_forward</span>
+</code></pre><p><strong>Ajouter les règles NAT</strong> (sur le firewall) :</p>
+<p>Cette commande permet de masquer les adresses IP des paquets sortants en utilisant l’adresse de l’interface réseau externe.</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-t</span> nat <span class="token parameter attr-name">-A</span> POSTROUTING <span class="token parameter attr-name">-j</span> MASQUERADE</span>
+</code></pre><p><strong>Redirection du trafic HTTP vers un proxy</strong> (sur le firewall) :</p>
+<p>On récupère chaque paquet HTTP (port 80) et on le redirige vers le port sur lequel le proxy est en écoute.</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code><span class="token command"><span class="token keyword keyword-PROXY_PORT">PROXY_PORT</span>=<span class="token number">8888</span></span>
+<span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-t</span> nat <span class="token parameter attr-name">-A</span> PREROUTING <span class="token parameter attr-name">-p</span> tcp <span class="token parameter attr-name">--dport</span> <span class="token number">80</span> <span class="token parameter attr-name">-j</span> REDIRECT <span class="token parameter attr-name">--to-port</span> $PROXY_PORT</span>
+</code></pre><p><strong>Blocage de l'ensemble des connexions à une liste de noms de domaines</strong></p>
+<p>Le script suivant permet de bloquer l'accès à une liste de domaines pour toutes les IP <u>si elles ne font pas partie de la liste des adresses IP autorisées</u>.</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code># Permettre le trafic entrant et transféré des IP autorisées
+<span class="token command"><span class="token keyword keyword-while">while</span> IFS= read <span class="token parameter attr-name">-r</span> ip; do</span>
+  <span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-A</span> INPUT <span class="token parameter attr-name">-s</span> $ip <span class="token parameter attr-name">-j</span> ACCEPT</span>
+  <span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-A</span> FORWARD <span class="token parameter attr-name">-s</span> $ip <span class="token parameter attr-name">-j</span> ACCEPT</span>
+<span class="token command"><span class="token keyword keyword-done">done</span> &lt; allowed_ips.txt</span>
 
-      </div>
-      
-      
-    
-    
-    
-    
-    
-    
-  
-    </body></html>
+# Bloquer les domaines spécifiques pour toutes les IP non autorisées
+<span class="token command"><span class="token keyword keyword-while">while</span> IFS= read <span class="token parameter attr-name">-r</span> domain; do</span>
+  <span class="token command"><span class="token keyword keyword-resolved_ip">resolved_ip</span>=$(dig +short <span class="token string">"$domain"</span> | head <span class="token parameter attr-name">-n</span> <span class="token number">1</span></span><span class="token punctuation">)</span>
+  <span class="token command"><span class="token keyword keyword-echo">echo</span> <span class="token string">"Blocking $domain ($resolved_ip)"</span></span>
+  <span class="token command"><span class="token keyword keyword-if">if</span> [ <span class="token parameter attr-name">-n</span> <span class="token string">"$resolved_ip"</span> ]; then</span>
+    <span class="token command"><span class="token keyword keyword-iptables">iptables</span> <span class="token parameter attr-name">-A</span> FORWARD <span class="token parameter attr-name">-d</span> <span class="token string">"$resolved_ip"</span> <span class="token parameter attr-name">-j</span> REJECT <span class="token parameter attr-name">--reject-with</span> icmp-host-prohibited</span>
+  <span class="token command"><span class="token keyword keyword-fi">fi</span></span>
+<span class="token command"><span class="token keyword keyword-done">done</span> &lt; blocked_sites.txt</span>
+</code></pre><p><strong>Requête de connexion</strong> (sur la machine utilisateur)</p>
+<p>Pour spécifier que l'on doit passer par un proxy, on peut utiliser la commande <code>curl</code> avec l'option <code>--proxy</code> (ou <code>-x</code> c'est pareil) :</p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch batch"><code># Pour tester le proxy, vous pouvez utiliser curl avec un proxy spécifié:
+<span class="token command"><span class="token keyword keyword-curl">curl</span> <span class="token parameter attr-name">--proxy</span> &lt;adresse_firewall&gt;:<span class="token number">8888</span> &lt;url&gt;</span>
+</code></pre><p>Si le firewall et le proxy sont bien configurés, une simple requête <code>curl &lt;url&gt;</code> devrait fonctionner correctement aussi.</p>
+<hr>
+</div></body></html>
+    </div>
+  </body>
+</html>
