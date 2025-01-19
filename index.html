@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <h1>Les projets :</h1>
-        <div class="container">
-            <div class="box" id="cours">Cours</div>
-            <div class="box" id="polyrithms-box"></div>
-<!--             <div class="box">Lien 2</div>
-            <div class="box">Lien 3</div>
-            <div class="box">Lien 4</div> -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c'est le menu ça</title>
+    <link rel="icon" type="image/png" href="icons/house-solid.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/
         </div>
-    </body>
-    <script src="box-redirect.js"></script>
+        <div id="liste-items">
+            <div id="cours" class="item">
+                <i class="fas fa-book"></i>
+                IDU - cours
+            </div>
+            <div id="github" class="item">
+                <i class="fa-brands fa-github"></i>
+                github - @mathieeeu
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('cours').addEventListener('click', function() {
+        window.location.href = 'cours/';
+    });
+    document.getElementById('github').addEventListener('click', function() {
+        window.location.href = 'https://github.com/Mathieeeu';
+    });
+</script>
 </html>

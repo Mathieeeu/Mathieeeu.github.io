@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA731</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/calculator-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/data731
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="data731-tp1" class="item">
+                <i class="fa-duotone fa-solid fa-chart-simple"></i>
+                TP1 : Modèles de distributions univariées
+            </div>
+            <div id="data731-tp2" class="item">
+                <i class="fas fa-magnifying-glass-chart"></i>
+                TP2 : Analyse et synthèse par modèle auto-régressif
+            </div>
+            <div id="data731-projet" class="item">
+                <i class="fas fa-heart-pulse"></i>
+                Projet : Heart Disease Prediction Dataset
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+    document.getElementById('data731-tp1').addEventListener('click', function() {
+        window.location.href = 'tp1.html';
+    });
+    document.getElementById('data731-tp2').addEventListener('click', function() {
+        window.location.href = 'tp2.html';
+    });
+    document.getElementById('data731-projet').addEventListener('click', function() {
+        window.location.href = 'projet/';
+    });
+</script>
+</html>

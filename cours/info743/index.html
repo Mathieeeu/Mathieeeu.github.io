@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO743</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/server-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/info743
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="info743-cours" class="item">
+                <i class="fas fa-network-wired"></i>
+                INFO743 - Réseaux et systèmes répartis
+            </div>
+            <div id="info743-tp" class="item">
+                <i class="fas fa-screwdriver-wrench"></i>
+                INFO743 - TP Réseaux
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../';
+    });
+    document.getElementById('info743-cours').addEventListener('click', function() {
+        window.location.href = 'cours.html';
+    });
+    document.getElementById('info743-tp').addEventListener('click', function() {
+        window.location.href = 'tp.html';
+    });
+</script>
+</html>

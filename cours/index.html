@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>c le menu</title>
+    <title>IDU - Cours</title>
+    <link rel="icon" type="image/png" href="../icons/book-solid.svg">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>c le menu ça :</h1>
-    <ul>
-        <li><a href="data731/tp/">Data731</a></li>
-        <li><a href="reseau/">Réseaux</a></li>
-        <li><a href="reseau/tp.html">TP Réseaux</a></li>
-        <li><a href="data732/projet.html">Data732 - Projet </a></li>
-    </ul>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="data731" class="item">
+                <i class="fas fa-calculator"></i>
+                DATA731 - Modélisation stochastique
+            </div>
+            <div id="data732" class="item">
+                <i class="fas fa-chart-column"></i>
+                DATA732 - Visualisation de données
+            </div>
+            <div id="info743-cours" class="item">
+                <i class="fas fa-server"></i>
+                INFO743 - Réseaux et systèmes répartis
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../';
+    });
+    document.getElementById('data731').addEventListener('click', function() {
+        window.location.href = 'data731/';
+    });
+    document.getElementById('data732').addEventListener('click', function() {
+        window.location.href = 'data732/';
+    });
+    document.getElementById('info743-cours').addEventListener('click', function() {
+        window.location.href = 'info743/';
+    });
+</script>
 </html>
