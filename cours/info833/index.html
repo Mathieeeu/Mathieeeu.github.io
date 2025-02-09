@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO833</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/server-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/info833
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="info833-cours" class="item">
+                <i class="fa-duotone fa-solid fa-server"></i>
+                Cours complet
+            </div>
+            <div id="info833-tds" class="item">
+                <i class="fa-duotone fa-solid fa-server"></i>
+                Travaux dirigés
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+    document.getElementById('info833-cours').addEventListener('click', function() {
+        window.location.href = 'cours.html';
+    });
+    document.getElementById('info833-tds').addEventListener('click', function() {
+        window.location.href = 'tds.html';
+    });
+</script>
+</html>

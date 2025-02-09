@@ -1,0 +1,598 @@
+<!DOCTYPE html><html><head>
+      <title>cours</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\doche\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="info833---systèmes-distribués-à-large-échelle">INFO833 - Systèmes distribués à large échelle </h1>
+<h2 id="introduction">Introduction </h2>
+<h3 id="principes-des-systèmes-distribués">Principes des systèmes distribués </h3>
+<ul>
+<li><strong>Problèmes</strong> :
+<ul>
+<li>Dynamisme (hardware / software) : pannes, ajout de ressources, ...</li>
+<li>Localisation et allocation des ressources : où exécuter une tâche ?</li>
+<li>Concurrence : partage de ressources, accès concurrents, ...</li>
+<li>Asynchronisme : ordre des événements, ...</li>
+</ul>
+</li>
+<li><strong>Objectifs</strong> :
+<ul>
+<li>Résilience/disponibilité : tolérance aux pannes, ...</li>
+<li>Transparence : l'utilisateur n'a pas besoin de savoir où est exécutée une tâche ou comment est stockée une ressource</li>
+<li>Efficacité : performance, scalabilité, ...</li>
+<li>Ouverture (Pour permettre de collaborer)</li>
+<li>Scalabilité (capacité à s'adapter à une augmentation de charge)</li>
+</ul>
+</li>
+<li><strong>Obstacles</strong> :
+<ul>
+<li>Le réseau doit être fiable (pas de perte de paquets (accusé de réception))</li>
+<li>Le réseau doit être sécurisé</li>
+<li>Le réseau doit être homogène (tout le monde doit recevoir les mêmes informations)</li>
+<li>La topologie ne doit pas changer</li>
+<li>La latence doit être nulle</li>
+<li>La bande passante doit être infinie</li>
+<li>Le coût de transport doit être nul</li>
+<li>Il ne doit y avoir qu'un administrateur</li>
+</ul>
+</li>
+</ul>
+<h3 id="histoire">Histoire </h3>
+<ul>
+<li>Années 60 : premiers clusters de machines</li>
+<li>1985 : Micro-processors et réseaux haute-vitesse ⇒ permet les premiers systèmes distribués</li>
+<li>Années 90 : Grid computing</li>
+<li>Années 2000 : Datacenters</li>
+<li>2006-2010 : Explosion du cloud</li>
+<li>2020 : Edge/Fog computing (edge : faire du calcul au plus proche de l'utilisateur (dans un smartphone, une box, un <em>radiateur</em>) et fog : mélange de cloud et edge)</li>
+<li>Aujourd'hui : SmartNIC (Network Interface Card)</li>
+</ul>
+<h3 id="défition">Défition </h3>
+<p><strong>Un système distribué est un ensemble de machines indépendantes qui apparaissent à l'utilisateur comme un seul système cohérent.</strong></p>
+<p>Caractéristiques :</p>
+<ul>
+<li><strong>Multiples composants autonomes</strong> : chaque machine a son propre processeur, mémoire, disque, ...</li>
+<li><strong>Des ressources pourraient ne pas être disponibles</strong> : s'organiser en prévoyant qu'il puisse y avoir des défaillances</li>
+<li><strong>Processus concurrents</strong></li>
+<li><strong>Plusieurs points de contrôle</strong></li>
+<li><strong>Plusieurs points de défaillance</strong></li>
+</ul>
+<h2 id="client--serveur">Client / Serveur </h2>
+<p>C'est le comportement standard sur Internet.</p>
+<p><img src="images/client-server.png" alt="Client-serveur"></p>
+<h3 id="configurations-possibles">Configurations possibles </h3>
+<ul>
+<li>1 serveur et N clients</li>
+<li>M serveurs et 1 client</li>
+<li>M serveurs et N clients</li>
+<li>Un serveur peut aussi être un client</li>
+</ul>
+<h3 id="limitations">Limitations </h3>
+<ul>
+<li><strong>Passage à l'échelle</strong> : le serveur peut être surchargé</li>
+<li><strong>Tolérance aux pannes</strong> : si le serveur tombe, tout le monde tombe</li>
+</ul>
+<h2 id="réseaux-peer-to-peer">Réseaux peer-to-peer </h2>
+<p>Tout le monde peut être client ou serveur :</p>
+<ul>
+<li>Avantages en scalabilité et en fiabilité (reliability)</li>
+<li>Différentes topologies (plate, anneau (DHTs), hiérarchique)</li>
+</ul>
+<h3 id="fonctionalités">Fonctionalités </h3>
+<ul>
+<li><strong>Dynamicité</strong> :</li>
+<li><strong>Découverte dynamique de pairs et ressources</strong> : <em>Comment on sait où se trouve un fichier particulier sachant qu'on ne connait que quelques voisins ?</em></li>
+<li><strong>Scalabilité</strong> : Plus il y a de pairs, plus le réseau est performant</li>
+<li><strong>Disponibilité</strong> : Les pairs sont interchangeables (replication)</li>
+</ul>
+<p>Comment faire avec une vue locale du réseau ?<br>
+→ Le réseau P2P construit un overlay (réseau logique de <em>"qui connait qui ?"</em>)</p>
+<h3 id="répertoire-central">Répertoire central </h3>
+<ul>
+<li>Un serveur central qui connaît tout le monde</li>
+<li>Le cout de la recherche est faible</li>
+<li>Réponse exacte</li>
+<li>On peut faire des requêtes complexes (à plusieurs attributs)</li>
+<li>MAIS faible tolérance aux pannes (si le serveur tombe, tout le monde tombe)
+<ul>
+<li>Les solutions pour contourner ça (workarounds) sont coûteuses</li>
+<li>Ça va à l'encontre de la philosophie du P2P</li>
+</ul>
+</li>
+<li>Pas d'overlay, pas de graphe à maintenir</li>
+<li>Exemple : Le premier système P2P (Napster) avait un server central</li>
+</ul>
+<h3 id="flooding">Flooding </h3>
+<ul>
+<li>
+<p>Chaque pair envoie la requête à tous ses voisins<br>
+<img src="images/flooding.png" alt="Schéma flooding"></p>
+</li>
+<li>
+<p>Caractéristiques :</p>
+<ul>
+<li>Haute tolérance aux pannes</li>
+<li>Couteux en nombre de messages</li>
+<li>Réponses partielles (Des fois on ne trouve pas le fichier parce qu'il faut faire plus de sauts que ce qu'on a choisi comme maximum)</li>
+</ul>
+</li>
+<li>
+<p>Exemple : GNutella</p>
+</li>
+</ul>
+<h3 id="approche-hybride">Approche hybride </h3>
+<ul>
+<li>
+<p>On a des super-peers qui connaissent tous les pairs autour d'eux et qui se connaissent entre eux.</p>
+</li>
+<li>
+<p>Caractéristiques :</p>
+<ul>
+<li>Nombre réduit de messages (comparé au flooding)</li>
+<li>Meilleure tolérance aux pannes (comparé au répertoire central)</li>
+<li>Réponses partielles (comme le flooding)</li>
+<li>La détection de super-peers est un problème</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/hybrid.png" alt="Schéma hybride"></p>
+<h3 id="distributed-hash-tables-dhts">Distributed Hash Tables (DHTs) </h3>
+<p>Le vrai problème du P2P est de trouver une ressource dans un réseau distribué</p>
+<ul>
+<li>API simple : <code>get(key)</code>, <code>put(key, value)</code></li>
+<li>Recherche de donnée efficace</li>
+<li>Mécanisme de healing (si un pair tombe, on peut le remplacer)</li>
+<li>Résistance au churn (les pairs qui se connectent et se déconnectent)</li>
+</ul>
+<h4 id="principes">Principes </h4>
+<ul>
+<li>
+<p><strong>Chaque pair a un identifiant unique</strong> : anneau logique ou key-based routing (KBR)</p>
+</li>
+<li>
+<p><strong>Chaque donnée a un identifiant unique</strong> :</p>
+</li>
+<li>
+<p>Il y a toujours un noeud responsable de chaque donnée (si on s'en va, on doit donner la responsabilité à quelqu'un d'autre)</p>
+</li>
+<li>
+<p>Le plus proche voisin est celui qui a l'identifiant le plus proche</p>
+</li>
+<li>
+<p>Les voisins les plus proches font partie du <em>leafset</em></p>
+</li>
+<li>
+<p>Bonne distribution de la charge/pas d'index (localisation implicite)</p>
+</li>
+</ul>
+<h4 id="avantages">Avantages </h4>
+<ul>
+<li>
+<p><strong>Approche 100% distribuée</strong> : pas de serveur central</p>
+</li>
+<li>
+<p><strong>Localisation efficace et exacte</strong></p>
+</li>
+<li>
+<p><strong>Equilibre de charges</strong></p>
+</li>
+<li>
+<p><strong>Très bonne scalabilité</strong> : il faut log(n) sauts pour trouver une donnée</p>
+</li>
+<li>
+<p><strong>MAIS</strong> si on veut faire des range queries (par exemple, trouver toutes les données entre 2 bornes), c'est plus compliqué</p>
+</li>
+</ul>
+<h4 id="placement-des-données">Placement des données </h4>
+<ul>
+<li>Deux solutions principales :
+<ul>
+<li>Contiguous : on place les données de manière contiguë (comme un anneau)</li>
+<li>Non-contiguous : la donnée est répartie de manière aléatoire parmi les pairs</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/data-placement.png" alt="Data placement in DHTs"></p>
+<ul>
+<li>L'insersion de donnée est plus simple dans le cas non-contiguous</li>
+<li>Il faut déplacer des données à chaque ajout/suppression de pair dans le cas contiguous (un déplacement peut être très coûteux)</li>
+</ul>
+<p><img src="images/add-data-dht.png" alt="Add data in DHTs"></p>
+<h3 id="localisation-des-données-dans-un-système-p2p">Localisation des données dans un système P2P </h3>
+<ul>
+<li><strong>Centralisé</strong> :<br>
++ Nombre de messages<br>
++ Réponse exacte<br>
+- Tolérance aux pannes</li>
+<li><strong>Flooding</strong> :<br>
++ Tolérance aux pannes<br>
+- Nombre de messages<br>
+- Réponse exacte</li>
+<li><strong>Hybride</strong> :<br>
++ Nombre de messages<br>
++ Tolérance aux pannes<br>
+- Réponse exacte</li>
+<li><strong>DHTs</strong> :<br>
++ Nombre de messages<br>
++ Tolérance aux pannes<br>
++ Réponse exacte<br>
+- Requêtes complexes</li>
+</ul>
+<h3 id="propriétés-des-réseaux-p2p">Propriétés des réseaux P2P </h3>
+<ul>
+<li>
+<p>Basés sur les <strong>overlay networks</strong> : réseau logique construit par dessus le réseau physique ("qui connait qui ?") ⇒ Si chaque noeud connait ses voisins, ça forme un graphe</p>
+</li>
+<li>
+<p>Besoin de redondance (plusieurs chemins entre deux points) pour la tolérance aux pannes</p>
+</li>
+<li>
+<p>Besoin de liens spécifiques (notamment entre les super-peers, les noeuds qui communiquent le plus...)</p>
+</li>
+<li>
+<p><strong>Topologies d'overlay</strong> :</p>
+<ul>
+<li>Graphes aléatoires</li>
+<li>Graphes complets</li>
+<li>Guidée par l'application (exemple : Solipsis, un monde virtuel où les noeuds sont proches s'ils sont proches dans le monde virtuel)</li>
+<li>Anneaux/grid/tors/hypercubes...</li>
+<li>Hiérarchiques</li>
+<li>Multi-overlay (plusieurs overlay pour différentes fonctions (exemple : un overlay pour la proximité géographique et un autre pour la proximité des contacts de téléphone dans un jeu vidéo))</li>
+</ul>
+</li>
+<li>
+<p><strong>Objectif</strong> :</p>
+<ul>
+<li>Tous les noeuds doivent être connectés au moins une fois</li>
+<li>Le diamètre du graphe doit être petit (le nombre de sauts minimal pour aller d'un point à un autre doit être petit ⇒ Propriété de <strong>petit monde</strong>)</li>
+<li>Les liens doivent être application-aware (les liens sont choisis en fonction de l'application)</li>
+<li>Les liens doivent prendre en compte le réseau physique (éviter de faire 18 allers-retours entre la France et l'Australie pour trouver une donnée)</li>
+<li>Routing basé sur des clés (KBR)</li>
+</ul>
+</li>
+<li>
+<p><strong>Opérations</strong> :</p>
+<ul>
+<li>Arrivée de nouveaux noeuds</li>
+<li>Départ de noeuds (avec ou sans avertissement)</li>
+<li>Maintenance de l'overlay</li>
+<li>Être capable de trouver une donnée</li>
+</ul>
+</li>
+</ul>
+<h2 id="tolérance-aux-fautes">Tolérance aux fautes </h2>
+<h3 id="fautes">Fautes </h3>
+<h4 id="différents-types-de-fautes">Différents types de fautes </h4>
+<ul>
+<li><strong>Crash</strong> : La machine a cramé, elle est plus là, c'est ff</li>
+<li><strong>Crash recovery</strong> : La machine a cramé mais elle pourrait revenir
+<ul>
+<li><em>Problème : on revient avec une donnée qui n'est plus à jour, et en plus elle a été déplacée lors du crash...</em></li>
+<li><em>Solution : on demande à la machine d'oublier la ressource, c'est plus elle qui la gère</em></li>
+</ul>
+</li>
+<li><strong>Omissions</strong> : La machine agit selon ses spécifications mais pas tout le temps (perte de message)</li>
+<li><strong>Byzantine</strong> : La machine fait n'importe quoi
+<ul>
+<li><em>Solution : On multiplie les requêtes pour être sûr de la réponse en moyenne</em></li>
+</ul>
+</li>
+</ul>
+<p><em>Il faut savoir que les crashs sont des omissions, qui sont des byzantines (Crash (/recovery) &lt; Omission &lt; Byzantine)</em></p>
+<h4 id="conséquences-des-fautes">Conséquences des fautes </h4>
+<ul>
+<li>Perte de données</li>
+<li>Perte du calcul (s'il n'a pas enregistré son état)</li>
+<li>Deadlock (si un noeud attend une réponse qui ne viendra jamais)</li>
+<li>Incohérences (si on recrée un jeton alors que le précédent n'a pas été détruit)</li>
+<li>Security hole</li>
+</ul>
+<h4 id="détection-des-fautes">Détection des fautes </h4>
+<ul>
+<li><strong>Lazy</strong> : Si on ne reçoit pas de réponse, on considère que le noeud est mort</li>
+<li><strong>Heartbeat</strong> : On envoie un message régulièrement pour dire qu'on est vivant</li>
+<li><strong>Ping</strong> : On demande aux autres noeuds s'ils sont vivants régulièrement</li>
+</ul>
+<h4 id="scalabilité">Scalabilité </h4>
+<p>Plus il y a de noeuds, plus il y a de chances qu'un noeud tombe.</p>
+<ul>
+<li><strong>Hiérachique</strong> : Partition des noeuds en groupes, monitoring local (all-to-all) ou global (one-to-one)</li>
+<li><strong>Probabiliste</strong> : On ping aléatoirement des noeuds à chaque round (et on fait parcourir la liste des suspects)</li>
+<li><strong>Anneau</strong></li>
+<li><strong>Overlay pair-à-pair</strong> : chacun surveille ses voisins</li>
+</ul>
+<h3 id="détection-des-fautes-1">Détection des fautes </h3>
+<h4 id="crashes">Crashes </h4>
+<p>On utilise le heartbeat ou ping pour détecter d'eventuels timeouts mais c'est compliqué de savoir si c'est un crash ou un délai élevé...</p>
+<h4 id="omissions">Omissions </h4>
+<p>On peut détecter et corriger des omissions en utilisant des :</p>
+<ul>
+<li>Messages numérotés</li>
+<li>Acknowledgements</li>
+<li>Re-émission</li>
+</ul>
+<h3 id="solution-généralement-utilisée-la-redondance">Solution généralement utilisée, la redondance </h3>
+<ul>
+<li>Pour les données : on a plusieurs copies de la même donnée</li>
+<li>Pour les calculs : on a plusieurs noeuds qui font le même calcul (réplication)</li>
+<li>Pour les communications : on fait des checkpoints/restart (on sauvegarde l'état du noeud régulièrment)</li>
+</ul>
+<h2 id="checkpointing">Checkpointing </h2>
+<h3 id="rollback-recovery">Rollback-recovery </h3>
+<p><strong>Checkpointing</strong> : On sauvegarde l'état de la mémoire d'un processus de manière à pouvoir le restaurer plus tard</p>
+<p>Dans un cas à plusieurs processus (communication), il faut que tout le monde rollback vers le même état (sinon ça ne sert à rien)</p>
+<p>Pour réduire le coût du checkpointing :</p>
+<ul>
+<li>on peut ne sauvegarder que les données qui ont changé depuis le dernier checkpoint.</li>
+<li>on peut faire des checkpoints quand l'empreinte est faible (quand il n'y a pas beaucoup de messages en attente)</li>
+</ul>
+<h3 id="effet-domino">Effet domino </h3>
+<p>Si un noeud rollback, il faut que tous les noeuds qui ont reçu un message de ce noeud rollback aussi. Ça peut entrainer une réaction en chaine qui renvoie le système  l'état initial. L'idéal pour éviter ça est de faire un checkpoint global de temps en temps, pour faire une ligne de recouvrement (<em><u>recovery line</u> : un état global dans lequel il n'y a pas de message reçu sans avoir été émis précédemment</em>)</p>
+<p><img src="images/effet-domino.png" alt="Effet domino"></p>
+<h3 id="types-de-checkpoints">Types de checkpoints </h3>
+<p><strong>Checkpointing non-coordonné</strong> :<br>
+Chaque noeud fait ses propres checkpoints mais il faut tout synchroniser parfois pour éviter l'effet domino.</p>
+<ul>
+<li>Objectif : Trouver la ligne de recouvrement la plus récente.</li>
+<li>On cherche un graphe de dépendance directe entre les checkpoints (chaque processus se rappelle de qui il dépend, càd de qui il a reçu un message).</li>
+<li>Récupération :
+<ol>
+<li>Envoi d'une requête.</li>
+<li>Collecte du graphe de dépendances local.</li>
+<li>Calculer la ligne de recouvrement.</li>
+<li>Restaurer les états depuis les checkpoints.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Checkpointing coordonné</strong> :<br>
+Un noeud est désigné pour dire à tout le monde de faire un checkpoint. C'est plus simple mais ça peut être un point de défaillance.</p>
+<ul>
+<li>
+<p>Avanatage : il ne faut stocker qu'un seul checkpoint par noeud.</p>
+</li>
+<li>
+<p>Processus :</p>
+<ol>
+<li>Un coordinateur broadcast une requête de checkpoint.</li>
+<li>Dès qu'un noeud reçoit la requête, il envoie un "checkpoint ready" au coordinateur.</li>
+<li>Dès que le coordinateur a reçu tous les "checkpoint ready", il envoie un "checkpoint do" et tout le monde fait un checkpoint et envoie "checkpoint done" au coordinateur.</li>
+<li>Quand le coordinateur a reçu tous les "checkpoint done", il envoie "checkpoint commit" pour faire redemarrer tous les processus en cours.</li>
+</ol>
+</li>
+<li>
+<p>Problème : ça stoppe tout le monde pendant un moment.</p>
+</li>
+<li>
+<p><u>Algorithme de Chandy-Lamport</u> :<br>
+<em>Permet de faire un checkpoint global sans arrêter le système (non-bloquant)</em></p>
+<ol>
+<li>Le processus observateur (celui qui initie la prise d'état) enregistre son état courant et envoie une requête qui contient un "marqueur d'état" à tous les autres processus.</li>
+<li>Un processus qui reçoit un "marqueur d'état" pour la première fois envoie son état courant au processus observateur et ajoute à chaque message un "marqueur d'état" pour aider à la propagation.</li>
+<li>Lorsqu'un processus ayant déjà effectué sa prise d'état reçoit un message qui n'a pas de marqueur d'état, il le transmet tel quel à l'observateur (car il doit quand même être pris en compte comme il a été envoyé avant la prise d'état globale).</li>
+</ol>
+<p><u>Schéma</u> : Ici, P3 est l'observateur et P1 et P2 sont les processus qui envoient leur état à P3.<br>
+<img src="images/chandy-lamport.png" alt="Chandy-Lamport"></p>
+</li>
+</ul>
+<p><strong>Jounalisation (Logging)</strong> :<br>
+On écrit tout ce qu'il se passe dans une sorte de journal. Si un noeud tombe, on peut rejouer le journal pour retrouver l'état du système sans déranger les autres.</p>
+<p><u>Piecewise deterministic (PWD)</u> (déterministe par morceaux) :</p>
+<ul>
+<li>Certaines parties de l'application sont deterministes (on peut les rejouer)</li>
+<li>On ne journalise que les parties non-deterministes (les entrées/sorties, les messages reçus, ...)</li>
+</ul>
+<p>Deux approches :</p>
+<ul>
+<li>Pessimiste : on journalise tous les messages reçus et on détecte les ré-émissions.</li>
+<li>Optimiste : on journalise les messages reçus en mémoire et on les écrit périodiquement sur un stockage stable (effet domino possible).</li>
+</ul>
+<p><strong>Communication induced</strong> :</p>
+<ul>
+<li>Utilisation de checkpoints non-coordonnés + de checkpoints forcés</li>
+<li>Les checkpoints forcés limitent l'effet domino.</li>
+<li>Pour réduire le nombre de checkpoints, on utilise un <em>Direct dependancy vector</em> (DDV) qui a :
+<ul>
+<li>Une entrée par noeud,</li>
+<li>Chaque noeud incrémente son propre numéro de séquence at chaque checkpoint.</li>
+<li>Quand un message est reçu, on vérifie si un checkpoint devrait être forcé (si le numéro de séquence de l'envoyeur est plus grand que le numéro de séquence du noeud qui l'a reçu)</li>
+</ul>
+</li>
+</ul>
+<p><u>Schéma</u> : ici, C1 ne change pas son numéro de séquence car il ne reçoit pas de message. C2 change le sien une première fois puis une deuxième fois + checkpoint forcé quand il reçoit le second message de C1.<br>
+<img src="images/communication-induced.png" alt="Communication induced"><br>
+<em>pas super compris cette partie 😦</em></p>
+<h2 id="broadcasting">Broadcasting </h2>
+<h3 id="définition-et-motivation">Définition et motivation </h3>
+<p>Un <strong>broadcast</strong> est une opération où un processus envoie un message à tous les autres processus d'un groupe.</p>
+<p>Sert beaucoup dans les communications parallèles (all-to-all par exemple) et pour les services de réplication (pour que tout le monde ait la même donnée).</p>
+<p><strong>Primitive de broadcast</strong> :</p>
+<ul>
+<li>Le même message doit être envoyé à tous les membres du groupe (expéditeur inclus)</li>
+<li>Le nombre de membres et leur identité doivent rester cachés.</li>
+<li><u>Primitive transparente</u> : on ne se préoccupe pas de savoir qui est dans le groupe, ni qui ils sont.</li>
+</ul>
+<p><strong>Deux types de <em>group membership</em></strong> :</p>
+<ul>
+<li><u>Statique</u> : le groupe est fixe.</li>
+<li><u>Dynamique</u> : les membres peuvent rejoindre le groupe ou le quitter.</li>
+</ul>
+<p><strong>Problèmes</strong> :</p>
+<ul>
+<li>Les processus peuvent crash (aussi pendant le broadcast)</li>
+<li>L'ordre des messages peut être différente selon les noeuds (la latence peut varier)</li>
+<li><u>Solution possible</u> :
+<ul>
+<li>Ajout d'une garantie pour que chaque message soit bien délivré</li>
+<li>Ajout d'une garantie pour l'ordre.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Diffusion inter-processus</strong> :</p>
+<ul>
+<li><u>Communications point-à-point</u> : chaque processus envoie un message à un autre processus.</li>
+<li>Un processus peut échouer (<em>fail-stop model</em>), ils sont soit "<em>correct</em>" soit "<em>faulty</em>" pendant l'exécution.</li>
+</ul>
+<h3 id="propriétés-dun-broadcast">Propriétés d'un broadcast </h3>
+<ul>
+<li>Garanties de livraison : best-effort, reliable broadcast, uniform reliable broadcast.</li>
+<li>Garanties d'ordre : FIFO, causal, total.<br>
+Toutes les combinaisons de ces propriétés sont possibles.</li>
+</ul>
+<h4 id="best-effort-broadcast">Best-effort broadcast </h4>
+<p>Chaque processus <em>correct</em> (qui ne crash pas) a délivré le message <u>si</u> l'envoyeur est <em>correct</em>.</p>
+<h4 id="reliable-broadcast">Reliable broadcast </h4>
+<p>Si l'envoyeur est <em>correct</em>, alors chaque processus <em>correct</em> délivre le message. Si l'envoyeur est <em>faulty</em>, alors soit tous les processus <em>correct</em> délivrent le message, soit aucun ne le délivre.</p>
+<p>Chaque message est estampillé avec un numéro de séquence unique (l'identité de l'émetteur).<br>
+Algorithme :</p>
+<pre data-role="codeBlock" data-info="pseudo" class="language-pseudo pseudo"><code>Processus P : 
+    seq#(m) : numéro de séquence
+    Variable locale : rec = ∅
+
+Real_broadcast(m) : 
+    estampiller m avec sender(m) et seq#(m) // envoyer m à tous les prcessus y compris P
+
+upon-recv(m) do
+    if m ∉ rec then 
+        rec ∪= {m}
+        if sender(m) != p then 
+            envoeyr m à tous les processus sauf p 
+        Real_deliver(m) // délivrer le message
+</code></pre><h4 id="uniform-reliable-broadcast">Uniform reliable broadcast </h4>
+<p>Propriété uniforme : implique tous les processus, les <em>correct</em> et les <em>faulty</em>.</p>
+<ul>
+<li>Si un message m est délivré par un processus (correct ou faulty), alors tous les processus corrects vont éventuellement délivrer m.</li>
+<li>Si l'émetteur plante, alors le messgae ne pourra pas être délivré par contre, donc on peut utiliser des ACKs (je crois, on le verra en TD)</li>
+</ul>
+<h4 id="garanties-dordre-de-livraison">Garanties d'ordre de livraison </h4>
+<ul>
+<li>
+<p><strong>Ordre total</strong> : tous les processus délivrent le même set de messages dans le même ordre.</p>
+</li>
+<li>
+<p><strong>FIFO</strong> (pour une seule source uniquement le FIFO) : si un processus envoie m1 avant m2, alors tous les processus corrects délivrent m1 avant m2.</p>
+</li>
+<li>
+<p><strong>Ordre causal</strong> : si le broadcast m1 arrive causalement avant un autre broadcast m2, alors chaque processus correct qui délivre m2 devra d'abord délivrer m1. A chaque broadcast, on ajoute un vecteur d'horloge qui est incrémenté à chaque broadcast pour savoir si un message est causalement avant un autre.</p>
+</li>
+</ul>
+<p><em>L'ordre causal implique l'ordre FIFO (mais pas l'inverse).</em></p>
+<h3 id="broadcasting-à-large-échelle">Broadcasting à large échelle </h3>
+<p>Les mécanismes de broadcast ne scalent pas très bien, ils n'ont que des connaissances partielles du groupe, les groupes évoluent fréquemment et le broadcast prend du temps.</p>
+<p><strong>Gossiping</strong> (bavardage) : protocole de diffusion qui consiste à envoyer un message à des voisins aléatoires et à les faire propager à leur tour. C'est un protocole probabiliste qui converge vers une distribution uniforme des messages en général.</p>
+<h2 id="réplication-de-données">Réplication de données </h2>
+<h3 id="définition-et-motivation-1">Définition et motivation </h3>
+<ul>
+<li><strong>Fiabilité</strong> : durabilité et disponibilité des données</li>
+<li><strong>Performance</strong> : latence et localisation des données, équilibrage de charge</li>
+</ul>
+<p><strong>Problèmes/défis</strong> :</p>
+<ul>
+<li>Combien de copies faire ?</li>
+<li>Où les stocker ? (data placement)</li>
+<li>Comment les localiser ? (data localization)</li>
+<li>Comment les maintenir (replication degree, distributed indexes...) ?</li>
+<li>Comment assurer la cohérence ?</li>
+</ul>
+<p>Le data placement doit être :</p>
+<ul>
+<li>dirigé par le middleware</li>
+<li>fiable (fiabilité des noeuds, régénération (healing) des données)</li>
+<li>performant (patterns d'accès, synchronisation des données)</li>
+<li>dynamique (monitoring des accès aux données, de la résilience des noeuds (depuis combien de temps ils fonctionnent sans problème?)</li>
+</ul>
+<p>La data localization peut avoir deux modèles :</p>
+<ul>
+<li>Fourni par l'overlay/le middleware/la topologie (DHT) : contraintes de placement, requêtes complètes mais performant</li>
+<li>Index distribués : contraintes de placements plus relachées, requêtes complexes plus faciles, besoin de maintenance</li>
+</ul>
+<p><strong>Récupérer des données</strong></p>
+<ul>
+<li>Avec ou sans maintenance : Fountain code, lazy monitoring</li>
+<li>Guérir le système (créer des nouvelles copies pour remplacer les perdues) : Immédiatelment (ASAP) ou différée</li>
+<li>Que faire des fausses détections ?</li>
+</ul>
+<h3 id="propagation-des-updates">Propagation des updates </h3>
+<ul>
+<li>Single writer (ou writer qui possède un token)</li>
+<li>Multi-writer (avec des conflits possibles, donc il faut un mécanisme de résolution de conflits)</li>
+</ul>
+<h2 id="evaluation-des-systèmes-distribués-à-large-échelle">Evaluation des systèmes distribués à large échelle </h2>
+<h3 id="problèmes">Problèmes </h3>
+<p><strong>Experience en temps réel</strong> :</p>
+<ul>
+<li>Besoin d'avoir des accès de nombreux noeuds distribués</li>
+<li>Besoin de prévoir le comportement des utilisateurs/des applications</li>
+<li>Cher</li>
+</ul>
+<h3 id="solutions-possibles">Solutions possibles </h3>
+<p><strong>Construire des plateformes d'évaluation (émuler un grand nombre de noeuds, environnement controllé)</strong></p>
+<p><strong>Utilisation de plateformes distribuées (émulation, virtualisation)</strong></p>
+<ul>
+<li>Sites distribués géographiquement</li>
+<li>multiples entités virtuelles sur chaque machine physique</li>
+<li>outils d'émulation de réseau (ajout de latence, reduction de bandepassante, perte de paquets, ...)<br>
+Problemes : besoin d'y avoir accès, cher, difficile à utiliser/debug/reproduire</li>
+</ul>
+<p><strong>Simulation à évenement discret</strong><br>
+L'idée c'est de ne pas utiliser le vrai code, mais de faire une simulationS<br>
+Le principe c'est d'avoir :</p>
+<ul>
+<li>un temps discret</li>
+<li>deux entités (nodes (machine/process/device/user...) et event (message, timer...))</li>
+<li>le temps progresse uniquement quand il y a un évenement</li>
+<li>chaque évenement a un label avec "qui est le recepteur" et "quand il doit arriver"</li>
+<li>à chaque instant, on regarde chaque évenement et on vérifie juste s'ils doivent être envoyés et à qui</li>
+</ul>
+<p>Avantages :</p>
+<ul>
+<li>Faible temps de calcul</li>
+<li>possibilité d'enregistrer l'état du système (pour l'arreter et le restart)</li>
+<li>simulation reproductible</li>
+<li>possitilité de tricher</li>
+</ul>
+<p>Inconvénients :</p>
+<ul>
+<li>c'est un modèle du système qui est evalué, pas le système lui-même</li>
+<li>peut etre plus lent que la réalité s'il y a beaucoup de noeuds/events</li>
+<li>difficile de choisir le bon niveau d'abstraction</li>
+<li>possibilité de tricher</li>
+</ul>
+<p>Limiter l'impact sur la mémoire :</p>
+<ul>
+<li>Fusionner les protocoles</li>
+<li>Délivrer les messages <em>à peu près</em> à la bonne heure (pour en livrer plusieurs à la fois)</li>
+<li><em>Attention aux effets de bord</em></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
