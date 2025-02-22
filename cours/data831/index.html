@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA831</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/database-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/data831
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="data831-tp1" class="item">
+                <i class="fa-solid fa-terminal"></i>
+                TP1 : Déploiement et utilisation d'Hadoop en Java
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+    document.getElementById('data831-tp1').addEventListener('click', function() {
+        window.location.href = 'tp1.html';
+    });
+</script>
+</html>
