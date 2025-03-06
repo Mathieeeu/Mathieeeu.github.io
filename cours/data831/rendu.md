@@ -319,7 +319,8 @@ Maintenant, lancez le programme MapReduce pour compter le nombre de ventes par p
 hadoop jar /tmp/ProductSalesPerCountry.jar /user/root/input/inputSales /user/root/output_output_sales
 ```
 
-> [!ALERT] **Problème**, l'exécution n'a pas marché de mon coté... vous aurez peut-être plus de chance !
+> [!CAUTION]
+> **Problème**, l'exécution n'a pas marché de mon coté... vous aurez peut-être plus de chance !
 
 Si ça a marché, on peut afficher les résultats dans un fichier texte en utilisant les commandes suivantes :
 
