@@ -71,15 +71,15 @@ Depuis votre machine locale, vous devez copier le fichier texte à analyser et l
 
 Pour ce faire, vous devez avoir téléchargé les fichiers suivants sur votre machine locale : 
 - [rousseauonline-all.txt](https://drive.google.com/file/d/1eKy_d4FlHBX5MYnIXCtqMRdqxOPkj0qY/view?usp=sharing) : le texte à analyser
-- [wordcountjava-1.0-SNAPSHOT.jar](https://drive.google.com/file/d/1V2zBl92LMFox5xaYVaVuoxLMxC7SYOYN/view?usp=sharing) : le programme MapReduce que nous allons utiliser dans la suite.
+- [wordcountjava-1.0-SNAPSHOT.jar](https://drive.google.com/file/d/1uweGJ-zptrhb7qZbFMGPsMPAsnsCNurk/view?usp=sharing) : le programme MapReduce que nous allons utiliser dans la suite.
 
 Ici, le programme présent dans le fichier JAR est un programme de comptage de mots **qui prend en compte la ponctuation**.
 
 Ensuite, vous pouvez copier ces fichiers dans le conteneur _namenode_ en utilisant les commandes suivantes depuis la console de votre machine locale :
 
 ```bash
-docker cp ./rousseauonline-all.txt namenode:/tmp
-docker cp ./wordcountjava-1.0-SNAPSHOT.jar namenode:/tmp
+docker cp <lien vers rousseauonline-all.txt> namenode:/tmp
+docker cp <lien vers wordcountjava-1.0-SNAPSHOT.jar> namenode:/tmp
 ```
 
 #### Etape 2 : Copier le fichier texte dans HDFS 
@@ -149,3 +149,128 @@ Pour exporter le contenu du fichier `part-r-00000` dans un fichier texte sur la 
     ```
 
 Le fichier `resultat.txt` est maintenant disponible sur votre machine locale pour une analyse plus approfondie.
+
+### Partie 4 : Passage à la taille supérieure
+
+#### Etape 1 : Copier les fichiers à analyser dans HDFS
+
+Téléchargez le jeu de données suivant : 
+
+- [Données de logs (ZIP 17.6MB, 203MB décompressé)](https://drive.google.com/file/d/1AEpBetNGDtjONtWRgt_L8yoQnerro-W2/view?usp=sharing) (source : [Kaggle](https://www.kaggle.com/datasets/vishnu0399/server-logs?select=logfiles.log))
+
+Après décompression, vous obtiendrez le fichier `logfiles.log` qui est celui que nous allons analyser.
+
+L'objectif est d'utiliser une version modifiée du programme de comptage de mots afin de compter la fréquence de connexion des utilisateurs dans les logs. Plus précisément, nous allons compter le nombre de fois que chaque adresse IP, indiquée dans la première colonne (jusqu'au premier espace), apparaît dans le fichier.
+
+Pour ce faire, une version modifiée de la classe `WordCount` appelée `ConnexionCount` a été créée. Voici un extrait de la classe `TokenizerMapper` de cette nouvelle classe :
+
+```java
+public static class TokenizerMapper
+    extends Mapper<Object, Text, Text, IntWritable> {
+
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+
+    public void map(Object key, Text value, Context context) 
+        throws IOException, InterruptedException {
+        StringTokenizer itr = new StringTokenizer(value.toString());
+        if (itr.hasMoreTokens()) {
+            String rawToken = itr.nextToken();
+            
+            // Extraire l'adresse IP (premier token)
+            String wordPart = rawToken.split(" ")[0];
+            
+            // Émettre l'adresse IP si le token n'est pas vide
+            if (!wordPart.isEmpty()) {
+                word.set(wordPart);
+                context.write(word, one);
+            }
+        }
+    }
+}
+```
+
+Cette classe se trouve déjà dans le fichier JAR `wordcountjava-1.0-SNAPSHOT.jar` que vous aviez téléchargé et copié dans le conteneur _namenode_.
+
+#### Etape 2 : Déploiement et exécution du job MapReduce sur les logs
+
+Suivez les étapes ci-dessous pour déployer et éxécuter la nouvelle version du programme sur les fichiers de logs : 
+
+1. Lancement du cluster Hadoop et démarrage des conteneurs
+
+    ```bash
+    cd docker-hadoop
+    docker-compose up -d
+    ```
+
+2. Depuis votre machine locale, copier le fichier `logfiles.log` dans le conteneur _namenode_
+
+    ```bash
+    docker cp <lien vers logfiles.log sur votre machine locale> namenode:/tmp
+    ```
+
+    Si ce n'est pas déjà fait, il faut aussi copier le fichier JAR `wordcountjava-1.0-SNAPSHOT.jar` dans le conteneur _namenode_ :
+
+    ```bash
+    docker cp <lien vers wordcountjava-1.0-SNAPSHOT.jar sur votre machine locale> namenode:/tmp
+    ```
+
+3. Accéder au conteneur _namenode_
+
+    ```bash
+    docker exec -it namenode bash
+    ```
+
+4. Préparer l'entrée dans HDFS 
+
+    ```bash
+    hdfs dfs -mkdir /user/root/input
+    hdfs dfs -put /tmp/logfiles.log /user/root/input
+    ```
+
+    Vous pouvez vérifier que le fichier a bien été copié en listant le contenu du répertoire `input` :
+
+    ```bash
+    hdfs dfs -ls input/
+    ```
+
+5. Exécuter le programme MapReduce sur les logs
+
+    Avant tout, il est important de vider le répertoire de sortie `output` s'il existe :
+
+    ```bash
+    hdfs dfs -rm -r /user/root/output
+    ```
+
+    Lancez ensuite le programme en spéficiant la nouvelle classe `ConnexionCount` :
+
+    ```bash
+    hadoop jar /tmp/wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.ConnexionCount /user/root/input/logfiles.log /user/root/output
+    ```
+
+6. Récupérer les résultats
+
+    Affichez désormais le contenu du résultat en redirigeant la sortie vers un fichier dans le conteneur : 
+
+    ```bash
+    hdfs dfs -cat /user/root/output/part-r-00000 > /tmp/resultat.txt
+    ```
+
+    Ensuite, quittez le conteneur avec la commande `exit` (ou ouvrez un nouveau terminal) et copiez le fichier `resultat.txt` sur votre machine locale :
+
+    ```bash
+    cd <votre répertoire de destination>
+    docker cp namenode:/tmp/resultat.txt .
+    ```
+
+#### Etape 3 : Analyse des résultats
+
+Le fichier `resultat.txt` affiche bien le nombre de fois que chaque adresse IP apparaît dans les logs. Pour cet exemple, nous constatons que : 
+
+- La très très grande majorité (999730 adresses) n'apparaissent qu'**une seule fois** dans les logs
+- Un petit nombre (135 adresses) apparaissent **deux fois**
+- Aucune adresse IP n'apparaît plus de deux fois
+
+Ce résultat montre que, dans ce jeu de données, la plupart des connexions sont uniques. Cela limite donc fortement l'analyse en termes de fréquences, mais montre que le MapReduce fonctionne correctement même sur des volumes de données plus importants (le fichier de logs est 15 fois plus volumineux que le fichier texte utilisé dans les parties précédentes). Pour des analyses utlérieures, il serait intéressant de travailler sur des jeux de données plus volumineux pour avoir un peu plus de variété dans les résultats obtenus.
+
+### Partie 5 : Passage aux données structurées
