@@ -274,3 +274,65 @@ Le fichier `resultat.txt` affiche bien le nombre de fois que chaque adresse IP a
 Ce résultat montre que, dans ce jeu de données, la plupart des connexions sont uniques. Cela limite donc fortement l'analyse en termes de fréquences, mais montre que le MapReduce fonctionne correctement même sur des volumes de données plus importants (le fichier de logs est 15 fois plus volumineux que le fichier texte utilisé dans les parties précédentes). Pour des analyses utlérieures, il serait intéressant de travailler sur des jeux de données plus volumineux pour avoir un peu plus de variété dans les résultats obtenus.
 
 ### Partie 5 : Passage aux données structurées
+
+_(Je préviens, cette partie là n'a pas fonctionné de mon coté...)_
+
+Pour cette partie, nous allons travailler sur un jeu de données structurées, à savoir un fichier CSV contenant des informations sur des ventes de produits.
+
+#### Etape 1 : Téléchargement des données
+
+Téléchargez le fichier `SalesJan2009.csv` à partir du lien suivant :
+
+- [SalesJan2009.csv](https://drive.google.com/file/d/1i0YCvS0v7EVMJAMqKUqotLKb6lEKv8kX/view?usp=sharing)
+- [ProductSalesPerCountry.jar](https://drive.google.com/file/d/1lO6W_BPm2oH2YaWUS0_yrfg4JxW0wEyk/view?usp=sharing)
+
+#### Etape 2 : Préparation des fichiers pour l'analyse
+
+Tout d'abord, démarrez le cluster Hadoop en utilisant la commande `docker-compose up -d`.
+
+1. Copiez les fichiers `SalesJan2009.csv` et `ProductSalesPerCountry.jar` dans le conteneur _namenode_ :
+
+    ```bash
+    docker cp <lien vers SalesJan2009.csv> namenode:/tmp
+    docker cp <lien vers ProductSalesPerCountry.jar> namenode:/tmp
+    ```
+
+2. Accédez au conteneur _namenode_ :
+
+    ```bash
+    docker exec -it namenode bash
+    ```
+
+3. Créez un répertoire `input` et copiez le fichier `SalesJan2009.csv` dans ce répertoire :
+
+    ```bash
+    hdfs dfs -mkdir /user/root/input/inputSales
+    hdfs dfs -put /tmp/SalesJan2009.csv /user/root/input/inputSales
+    hdfs dfs -ls /user/root/input/inputSales # pour vérifier que le fichier est bien là
+    ```
+
+#### Etape 3 : Exécution du programme MapReduce
+
+Maintenant, lancez le programme MapReduce pour compter le nombre de ventes par pays :
+
+```bash
+hadoop jar /tmp/ProductSalesPerCountry.jar /user/root/input/inputSales /user/root/output_output_sales
+```
+
+> [!ALERT] **Problème**, l'exécution n'a pas marché de mon coté... vous aurez peut-être plus de chance !
+
+Si ça a marché, on peut afficher les résultats dans un fichier texte en utilisant les commandes suivantes :
+
+```bash
+hdfs dfs -cat /user/root/output_output_sales/part-r-00000 > /tmp/resultat_sales.txt
+```
+
+puis copier le fichier `resultat_sales.txt` sur votre machine locale (après avoir quitté le conteneur) :
+
+```bash
+docker cp namenode:/tmp/resultat_sales.txt .
+```
+
+### Conclusion
+
+Ce tutoriel a permis de voir comment déployer un cluster Hadoop en utilisant Docker et comment utiliseer un programme de MapReduce en Java pour effectuer des opérations simples sur des fichiers (un peu) volumineux. Nous avons pu voir comment compter les mots dans un texte, analyser des logs et travailler sur des données structurées (enfin presque...).
