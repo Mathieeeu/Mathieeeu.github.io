@@ -286,7 +286,7 @@ Téléchargez les fichier suivants :
 
 Le fichier `SalesJan2009.csv` contient des informations sur des ventes de produits et le fichier JAR `ProductSalesMapReduce-1.0-SNAPSHOT.jar` contient le programme MapReduce que nous allons utiliser pour analyser ces données.
 
-Ce programme est basé sur du code disponible sur [ce site](https://www.guru99.com/create-your-first-hadoop-program.html).
+Ce programme est basé sur du code disponible [ici](https://www.guru99.com/create-your-first-hadoop-program.html).
 
 #### Etape 2 : Préparation des fichiers pour l'analyse
 
