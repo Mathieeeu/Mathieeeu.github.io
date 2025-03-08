@@ -38,7 +38,7 @@ Cette commande initialise plusieurs conteneurs, notamment le _namenode_, qui est
 
 On peut s'assurer du bon fonctionnement des conteneurs en cours d'exécution en utilisant la commande `docker ps`.
 
-Il est possible d'arrêter le cluster Hadoop en utilisant la commande suivante :
+Il est possible d'arrêter le cluster Hadoop à tout moment en utilisant la commande suivante :
 
 ```bash
 docker-compose down
@@ -231,7 +231,7 @@ Suivez les étapes ci-dessous pour déployer et éxécuter la nouvelle version d
     Vous pouvez vérifier que le fichier a bien été copié en listant le contenu du répertoire `input` :
 
     ```bash
-    hdfs dfs -ls input/
+    hdfs dfs -ls /user/root/input/
     ```
 
 5. Exécuter le programme MapReduce sur les logs
@@ -279,10 +279,14 @@ Pour cette partie, nous allons travailler sur un jeu de données structurées, �
 
 #### Etape 1 : Téléchargement des données
 
-Téléchargez le fichier `SalesJan2009.csv` à partir du lien suivant :
+Téléchargez les fichier suivants : 
 
 - [SalesJan2009.csv](https://drive.google.com/file/d/1i0YCvS0v7EVMJAMqKUqotLKb6lEKv8kX/view?usp=sharing)
 - [ProductSalesMapReduce-1.0-SNAPSHOT.jar](https://drive.google.com/file/d/1L88cXR3QJrm1FxlpcSkjGp_HOYaYC0q7/view?usp=sharing)
+
+Le fichier `SalesJan2009.csv` contient des informations sur des ventes de produits et le fichier JAR `ProductSalesMapReduce-1.0-SNAPSHOT.jar` contient le programme MapReduce que nous allons utiliser pour analyser ces données.
+
+Ce programme est basé sur du code disponible sur [ce site](https://www.guru99.com/create-your-first-hadoop-program.html).
 
 #### Etape 2 : Préparation des fichiers pour l'analyse
 
@@ -301,27 +305,30 @@ Tout d'abord, démarrez le cluster Hadoop en utilisant la commande `docker-compo
     docker exec -it namenode bash
     ```
 
-3. Créez un répertoire `input` et copiez le fichier `SalesJan2009.csv` dans ce répertoire :
+3. Créez un répertoire `input` (si ce n'est pas déjà fait) et copiez le fichier `SalesJan2009.csv` dans ce répertoire :
 
     ```bash
-    hdfs dfs -mkdir /user/root/input/inputSales
-    hdfs dfs -put /tmp/SalesJan2009.csv /user/root/input/inputSales
-    hdfs dfs -ls /user/root/input/inputSales # pour vérifier que le fichier est bien là
+    hdfs dfs -mkdir /user/root/input
+    hdfs dfs -put /tmp/SalesJan2009.csv /user/root/input
+    hdfs dfs -ls /user/root/input # pour vérifier que le fichier est bien là
     ```
 
 #### Etape 3 : Exécution du programme MapReduce
 
-Maintenant, lancez le programme MapReduce pour compter le nombre de ventes par pays :
+Maintenant, lancez le programme MapReduce pour compter le nombre de ventes par pays, en pensant à vider le répertoire de sortie `output` s'il existe avant de lancer le programme :
 
 ```bash
 hdfs dfs -rm -r /user/root/output
-hadoop jar /tmp/ProductSalesMapReduce-1.0-SNAPSHOT.jar SalesCountry.SalesCountryDriver /input/SalesJan2009.csv /output
+```
+
+```bash
+hadoop jar /tmp/ProductSalesMapReduce-1.0-SNAPSHOT.jar SalesCountry.SalesCountryDriver /user/root/input/SalesJan2009.csv /output
 ```
 
 Si ça a marché, on peut afficher les résultats dans un fichier texte en utilisant les commandes suivantes :
 
 ```bash
-hdfs dfs -cat /output/part-r-00000 > /tmp/resultat_sales.txt
+hdfs dfs -cat /output/part-00000 > /tmp/resultat_sales.txt
 ```
 
 puis copier le fichier `resultat_sales.txt` sur votre machine locale (après avoir quitté le conteneur avec `exit` puis `cd <votre répertoire de destination>`): :
@@ -329,6 +336,10 @@ puis copier le fichier `resultat_sales.txt` sur votre machine locale (après avo
 ```bash
 docker cp namenode:/tmp/resultat_sales.txt .
 ```
+
+On peut maintenant analyser le fichier `resultat_sales.txt` pour voir le nombre de ventes par pays.
+
+On peut par exemple voir que les Etats-Unis sont le pays avec le plus de ventes (462), suivi par le Royaume-Uni (100) et le Canada (76). Il serait maintenant possible d'aller plus loin en analysant les ventes par produit, par mois, etc. et en utilisant des outils de visualisation pour représenter les données.
 
 ### Conclusion
 
@@ -340,4 +351,5 @@ Il est possible d'aller plus loin en travaillant sur des jeux de données plus v
 
 - [Setting up hadoop with docker](https://medium.com/@guillermovc/setting-up-hadoop-with-docker-and-using-mapreduce-framework-c1cd125d4f7b)
 - [Développer des programmes MapReduce Java pour Apache Hadoop sur HDInsight](https://learn.microsoft.com/fr-fr/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux)
+- [Données de logs Kaggle](https://www.kaggle.com/datasets/vishnu0399/server-logs?select=logfiles.log)
 - [Hadoop & Mapreduce examples : first program in java](https://www.guru99.com/create-your-first-hadoop-program.html)
