@@ -275,8 +275,6 @@ Ce résultat montre que, dans ce jeu de données, la plupart des connexions sont
 
 ### Partie 5 : Passage aux données structurées
 
-_(Je préviens, cette partie là n'a pas fonctionné de mon coté...)_
-
 Pour cette partie, nous allons travailler sur un jeu de données structurées, à savoir un fichier CSV contenant des informations sur des ventes de produits.
 
 #### Etape 1 : Téléchargement des données
@@ -284,7 +282,7 @@ Pour cette partie, nous allons travailler sur un jeu de données structurées, �
 Téléchargez le fichier `SalesJan2009.csv` à partir du lien suivant :
 
 - [SalesJan2009.csv](https://drive.google.com/file/d/1i0YCvS0v7EVMJAMqKUqotLKb6lEKv8kX/view?usp=sharing)
-- [ProductSalesPerCountry.jar](https://drive.google.com/file/d/1lO6W_BPm2oH2YaWUS0_yrfg4JxW0wEyk/view?usp=sharing)
+- [ProductSalesMapReduce-1.0-SNAPSHOT.jar](https://drive.google.com/file/d/1L88cXR3QJrm1FxlpcSkjGp_HOYaYC0q7/view?usp=sharing)
 
 #### Etape 2 : Préparation des fichiers pour l'analyse
 
@@ -316,19 +314,17 @@ Tout d'abord, démarrez le cluster Hadoop en utilisant la commande `docker-compo
 Maintenant, lancez le programme MapReduce pour compter le nombre de ventes par pays :
 
 ```bash
-hadoop jar /tmp/ProductSalesPerCountry.jar /user/root/input/inputSales /user/root/output_output_sales
+hdfs dfs -rm -r /user/root/output
+hadoop jar /tmp/ProductSalesMapReduce-1.0-SNAPSHOT.jar SalesCountry.SalesCountryDriver /input/SalesJan2009.csv /output
 ```
-
-> [!CAUTION]
-> **Problème**, l'exécution n'a pas marché de mon coté... vous aurez peut-être plus de chance !
 
 Si ça a marché, on peut afficher les résultats dans un fichier texte en utilisant les commandes suivantes :
 
 ```bash
-hdfs dfs -cat /user/root/output_output_sales/part-r-00000 > /tmp/resultat_sales.txt
+hdfs dfs -cat /output/part-r-00000 > /tmp/resultat_sales.txt
 ```
 
-puis copier le fichier `resultat_sales.txt` sur votre machine locale (après avoir quitté le conteneur) :
+puis copier le fichier `resultat_sales.txt` sur votre machine locale (après avoir quitté le conteneur avec `exit` puis `cd <votre répertoire de destination>`): :
 
 ```bash
 docker cp namenode:/tmp/resultat_sales.txt .
@@ -336,4 +332,12 @@ docker cp namenode:/tmp/resultat_sales.txt .
 
 ### Conclusion
 
-Ce tutoriel a permis de voir comment déployer un cluster Hadoop en utilisant Docker et comment utiliseer un programme de MapReduce en Java pour effectuer des opérations simples sur des fichiers (un peu) volumineux. Nous avons pu voir comment compter les mots dans un texte, analyser des logs et travailler sur des données structurées (enfin presque...).
+Ce tutoriel a permis de voir comment déployer un cluster Hadoop en utilisant Docker et comment utiliseer un programme de MapReduce en Java pour effectuer des opérations simples sur des fichiers (un peu) volumineux. Nous avons pu voir comment compter les mots dans un texte, analyser des logs et travailler sur des données structurées simples.
+
+Il est possible d'aller plus loin en travaillant sur des jeux de données plus volumineux et en utilisant des outils de visualisation pour afficher les résultats de manière plus intuitive à partir des fichiers texte générés.
+
+### Références
+
+- [Setting up hadoop with docker](https://medium.com/@guillermovc/setting-up-hadoop-with-docker-and-using-mapreduce-framework-c1cd125d4f7b)
+- [Développer des programmes MapReduce Java pour Apache Hadoop sur HDInsight](https://learn.microsoft.com/fr-fr/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux)
+- [Hadoop & Mapreduce examples : first program in java](https://www.guru99.com/create-your-first-hadoop-program.html)
