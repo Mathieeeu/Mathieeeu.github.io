@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keskece</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            background: black;
+            user-select: none;
+        }
+        .background {
+            position: absolute;
+            width: 250vw;
+            height: 250vh;
+            background: conic-gradient(white 0deg 30deg, lightblue 30deg 60deg, white 60deg 90deg, lightblue 90deg 120deg, white 120deg 150deg, lightblue 150deg 180deg, white 180deg 210deg, lightblue 210deg 240deg, white 240deg 270deg, lightblue 270deg 300deg, white 300deg 330deg, lightblue 330deg 360deg);
+            animation: rotateBackground 5s linear infinite;
+        }
+        @keyframes rotateBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .gift {
+        width: 100px;
+        height: 100px;
+        background: url('https://sweetpepper.fr/cdn/shop/files/kisspng-emojipedia-clip-art-gift-emoji-domain-5bad5e682aa8f2_8104584115380885521748_png.webp?v=1706498604') no-repeat center/contain;
+        cursor: pointer;
+        animation: pulse 1s infinite alternate;
+        position: relative;
+        z-index: 2;
+        user-select: none;
+        }
+        @keyframes clickAnimation {
+            0% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(1.8);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+        @keyframes pulse {
+            from { transform: scale(1.5); }
+            to { transform: scale(1.7); }
+        }
+        .ticket {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            background: rgb(138, 138, 71);
+            padding: 10px 20px;
+            border: 2px solid black;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .fireworks {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/2d/c6/41/2dc641d25931a0d9a2459bb2e477c374.png') no-repeat center/cover;
+            z-index: 1;
+        }
+        .banner {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="gift" onclick="showTicket()"></div>
+    <div class="ticket" id="ticket">2 PLACES POUR LE JEUDI ET VENDREDI DU VCT LETSGOOO</div>
+    <div class="fireworks" id="fireworks"></div>
+    <img src="mdr.png" class="banner" id="banner">
+    <audio id="sound" src="https://www.myinstants.com/media/sounds/tadaa.mp3"></audio>
+    <script>
+        var audio = document.getElementById('sound');
+        audio.volume = 0.3;
+        var clickCount = 0; // Initialisation du compteur à 0
+        
+        function showTicket() {
+            clickCount++; // Incrémente le compteur à chaque clic
+            const gift = document.querySelector('.gift');
+
+            // Animation temporaire du cadeau
+            gift.style.animation = 'clickAnimation 0.3s linear';
+            
+            // Supprime l'animation après qu'elle s'est terminée
+            setTimeout(() => {
+                gift.style.animation = '';
+            }, 300);
+
+            if (clickCount === 20) { // Affiche le ticket après 20 clics
+                gift.style.display = 'none';
+                document.getElementById('sound').play();
+                document.getElementById('fireworks').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('fireworks').style.display = 'none';
+                    document.getElementById('ticket').style.display = 'block';
+                    document.getElementById('banner').style.display = 'block';
+                }, 1500);
+            }
+        }
+    </script>
+    
+</body>
+</html>
