@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJ832</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/globe-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/proj832
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="proj832-cours" class="item">
+                <i class="fa-solid fa-envelopes-bulk"></i>
+                Cours complet
+            </div>
+            <div id="proj832-td" class="item">
+                <i class="fa-regular fa-message"></i>
+                Travaux dirigés
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+    document.getElementById('proj832-cours').addEventListener('click', function() {
+        window.location.href = 'cours.html';
+    });
+    document.getElementById('proj832-td').addEventListener('click', function() {
+        window.location.href = 'td.html';
+    });
+</script>
+</html>

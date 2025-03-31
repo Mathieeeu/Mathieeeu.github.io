@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head>
+      <title>cours</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>PROJ832 - Cours</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+      <link rel="icon" type="image/png" href="../../icons/file-lines-solid.svg">
+      <link rel="stylesheet" href="file:///c:\Users\doche\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="proj832---flux-de-données-et-accès-concurents">PROJ832 - Flux de données et accès concurents </h1>
+<h2 id="1---entréesortie-io">1 - Entrée/Sortie (I/O) </h2>
+<ul>
+<li>Abstraction des flux de données</li>
+<li>On peut filtrer les flux (crypter, inverser... askip comme des décorateurs Java)</li>
+</ul>
+<p>Un programme = un fichier qui prend une entrée (au début ou pendant l'exécution) et produit une sortie (à la fin ou pendant l'exécution).</p>
+<p><strong>Entrée/Sortie</strong> : ensemble des interactions qui sont faites pour recevoir et produire des données (quel que soit leur type)</p>
+<p><strong>Différents types d'intéractions</strong> :</p>
+<ul>
+<li>Par des fichiers (write/read)</li>
+<li>Message réseau (send/receive)</li>
+<li>Définition d'une variable (set/get)</li>
+<li>Mise à jour d'un string (update/read)</li>
+</ul>
+<p><strong>Différents classes d'I/O en Java</strong> :</p>
+<ul>
+<li>Flux de données de base (flux dirigé, types de données prédéfinis, utilisé dans les autres classes)</li>
+<li>Constructeurs (utilise un moyen particulier (file, table, string, pipe...))</li>
+<li>Filtres (avec une fonction (buffer, serialisation, compression...))</li>
+</ul>
+<p><strong>Récupérer le flux</strong> :</p>
+<ul>
+<li>Accesseur - Flux déjà existant (<a href="http://System.in">System.in</a>, System.out, System.err)</li>
+<li>Constructeur - Créer un flux (FileInputStream, FileOutputStream, FileReader, FileWriter)</li>
+</ul>
+<p><strong>Filtres de flux</strong> :</p>
+<ul>
+<li>Appelés <nom du="" filtre=""><type de="" flux=""> (BufferedInputStream par ex.)</type></nom></li>
+<li>Prend un flux en paramètre</li>
+<li>Extends Filter<type de="" stream=""> qui étend <type de="" stream=""></type></type></li>
+<li>Liste des filtres de base :<br>
+<img src="images/filtres.png" alt="Filtres de base"><br>
+<em>(ici, IS = InputStream, OS = OutputStream, R = Reader, W = Writer)</em></li>
+</ul>
+<h2 id="2---interaction-patterns">2 - Interaction patterns </h2>
+<p>Plusieurs types d'interactions :</p>
+<ul>
+<li>Modèle réseau : client/serveur, peer-to-peer</li>
+<li>Producteur/consommateur</li>
+<li>Publish/subscribe</li>
+<li>Workflows, Dataflows (gère comment les données pensent entre les différents acteur) : pipeline, map reduce</li>
+</ul>
+<p><strong>Client/serveur</strong> :</p>
+<ul>
+<li>Comportement de base d'internet</li>
+<li>Un serveur qui attend des requêtes et des clients qui les envoient</li>
+<li>Permet de distribuer les tâches (serveur = centralisation des données)</li>
+<li>Quand le client attend une réponse du serveur, il se bloque. Idem pour le serveur qui attend une requête du client.</li>
+<li>Dans les faits, le multithreading est utilisé pour éviter le blocage (chez le client et le serveur)</li>
+<li>Configurations possibles :
+<ul>
+<li>1 serveur, N clients</li>
+<li>M serveurs, 1 clients</li>
+<li>M serveurs, N clients</li>
+<li>Un serveur peut être aussi un client (ex. SGBD, mail...)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Peer-to-peer</strong> :</p>
+<ul>
+<li>Un noeud peut être un client et/ou un serveur : <strong>scalabilité</strong> et <strong>fiabilité</strong></li>
+<li>Topologies variées : flat, ring (DHT), hiérarchique...</li>
+</ul>
+<p><strong>Producteur/consommateur</strong> :</p>
+<ul>
+<li>Plusieurs paradigmes de programmation :
+<ul>
+<li>centralisé : avec des variables globales et des sémaphores</li>
+<li>distribué : avec des files de messages (message queue)</li>
+</ul>
+</li>
+<li>Le producteur produit une ressource</li>
+<li>Le consommateur consomme la ressource</li>
+<li>Plusieurs configurations possibles :
+<ul>
+<li>M producteurs, N consommateurs (M&gt;=1, N&gt;=1)</li>
+<li>Chaque ressource peut être consommée 1, 2,...N fois selon les besoins</li>
+</ul>
+</li>
+</ul>
+<p><strong>Publish/subscribe</strong> :</p>
+<ul>
+<li>Un peu comme le producteur/consommateur mais avec des canaux de communication</li>
+<li>Un éditeur publie un message</li>
+<li>Un abonné est notifié de la publication</li>
+</ul>
+<p><strong>Workflows, Dataflows</strong> :</p>
+<ul>
+<li>D'après wikipedia : "Un workflow est une représentation d'une suite de tâches à effectuer, d'opérations effecuées par des personnes..."</li>
+<li>Peut être représenté comme un graphe orienté acyclique (DAG), un réseau de Petri... et beaucoup utilisé en Big Data</li>
+<li>Types de workflow simple :
+<ul>
+<li><strong>Pipeline</strong> : chaque tâche est exécutée en série. Les données peuvent mettre du temps à faire le tour du pipeline mais chaque tâche est faite en série donc après une tâche, on peut être sûr que la suivante est instantanée.</li>
+<li><strong>Map Reduce</strong> : chaque tâche est exécutée en parallèle. Les données sont divisées en plusieurs parties et chaque partie est traitée en parallèle. Les résultats sont ensuite combinés. (voir dans le cours de <a href="https://mathieeeu.github.io/cours/data831/">Big Data</a>). Mais attention, ça marche pas pour tout (ex. tri).</li>
+</ul>
+</li>
+</ul>
+<h2 id="3---asynchronisme-et-fautes">3 - Asynchronisme et fautes </h2>
+<p><strong>Noeud unique contre noeuds multiples</strong> :</p>
+<ul>
+<li>Noeud unique :
+<ul>
+<li>Fautif ou pas fautif, c'est simple</li>
+<li>Tolérance aux fautes : Simple mécanisme de checkpoint</li>
+</ul>
+</li>
+<li>Système distribué :
+<ul>
+<li>Peut être partiellement fautif (noeud fautif)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Détection des fautes</strong> :</p>
+<ul>
+<li>Déterminer si un noeud est fautif ou non (avec des ping/pong, des heartbeat... où il faut déterminer une durée de timeout)</li>
+<li>Une bonne détection des fautes doit être précise et éviter les faux positifs</li>
+</ul>
+<p><strong>Tolérance aux fautes</strong> :</p>
+<ul>
+<li>Généralement basé sur la redondance (réplication de données, codes d'effacement, RAID, réplication de job, checkpoints distribués, logs...)</li>
+</ul>
+<h2 id="4---méthodes-de-communication">4 - Méthodes de communication </h2>
+<p><strong>RPC (Remote Procedure Call)</strong> :</p>
+<ul>
+<li>Appel de procédure à distance</li>
+<li>Les systèmes distribués sont chiants à programmer et les développeurs veulent juste appeler une fonction comme si elle était locale (RPC permet ça)</li>
+<li>Problèmes de RPC : fautes, héterogénéité (langage, système, hardware...), pas de mémoire partagée, versioning...</li>
+<li>Basé sur la génération de code comme ça :
+<ul>
+<li>Client :
+<ul>
+<li>Prépare les paramètres</li>
+<li>Localiser le serveur</li>
+<li>Faire l'appel (requete client/serveur)</li>
+<li>Attendre la réponse</li>
+<li>Décoder le résultat</li>
+</ul>
+</li>
+<li>Serveur au démarrage :
+<ul>
+<li>S'enregistrer auprès d'un serveur de nom</li>
+<li>Attendre une requête</li>
+</ul>
+</li>
+<li>Serveur lors d'une requête :
+<ul>
+<li>Décoder les paramètres</li>
+<li>Appeler la bonne procédure</li>
+<li>Coder le résultat</li>
+<li>Envoyer le résultat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>CORBA (Common Object Request Broker Architecture)</strong> :</p>
+<ul>
+<li>RPC amélioré qui peut utiliser des objets</li>
+<li>Basé sur un IDL (Interface Definition Language) qui permet de définir les interfaces des objets</li>
+<li>Appels de métthodes sur des objets distants (génération de code : stubs et skeletons)</li>
+</ul>
+<p><strong>RMI (Remote Method Invocation)</strong> :</p>
+<ul>
+<li>Pareil que CORBA mais pour Java (c'est celui qu'on va le plus utiliser apparemment)</li>
+<li>Offre des fonctionalités de résolution de nom, d'activation d'objets (permet d'endormir un objet et de le réveiller plus tard) et de gestion de la mémoire (garbage collector)</li>
+</ul>
+<h2 id="4---concurrence-en-java">4 - Concurrence en Java </h2>
+<p>(c'est des fonctions dans le diapo, je vais pas tout recopier mdr)</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
