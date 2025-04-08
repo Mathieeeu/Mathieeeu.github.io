@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA832</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../icons/robot-solid.svg">
+</head>
+<body>
+    <div class="container">
+        <div id="path">
+            mathieeeu/cours/data832
+        </div>
+        <div id="liste-items">
+            <div id="retour" class="item">
+                <i class="fas fa-arrow-left"></i>
+                Retour
+            </div>
+            <div id="data832-cours" class="item">
+                <i class="fa-solid fa-flask-vial"></i>
+                Cours : Apprentissage supervisé et non supervisé
+            </div>
+            <div id="data832-projet" class="item">
+                <i class="fa-solid fa-music"></i>
+                Projet : Classification de genres musicaux 
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('retour').addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+    document.getElementById('data832-cours').addEventListener('click', function() {
+        window.location.href = './cours.html';
+    });
+    document.getElementById('data832-projet').addEventListener('click', function() {
+        window.location.href = 'https://github.com/Mathieeeu/data832_projet';
+    });
+</script>
+</html>
