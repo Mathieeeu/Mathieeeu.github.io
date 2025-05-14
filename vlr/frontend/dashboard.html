@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCT Dashboard</title>
+    <link rel="icon" href="../assets/vct-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="../assets/vct-logo.svg" alt="VCT Logo">
+                <h1>VCT Stats</h1>
+            </div>
+            <ul class="nav">
+                <li><a href="#kda"><i class="fa-solid fa-skull"></i>KDA</a></li>
+                <li><a href="#esr"><i class="fa-solid fa-person-running"></i>ESR</a></li>
+                <li><a href="#baitscore"><i class="fa-solid fa-street-view"></i>BaitScore</a></li>
+                <li><a href="#impact"><i class="fa-solid fa-chart-line"></i>Impact</a></li>
+                <li><a href="#data-table"><i class="fas fa-table"></i>Données</a></li>
+            </ul>
+            <div class="footer">
+                <hr>
+                <p>Données provenant des VCT 2025 à 2025</p>
+                <p>Dernière mise à jour : 14/05/2025</p>
+                <p>Récupérées sur <a href="https://www.vlr.gg/" target="_blank">vlr.gg</a></p>
+                <p>Traitées par moi-même ;)</p>
+                <p>La bise ♥</p>
+            </div>
+        </div>
+        <div class="main">
+            <div id="kda" class="tab-content">
+                <h2><i class="fa-solid fa-skull"></i>KDA</h2>
+                <canvas id="kdaChart"></canvas>
+            </div>
+            <div id="esr" class="tab-content">
+                <h2><i class="fa-solid fa-person-running"></i>ESR</h2>
+                <canvas id="esrChart"></canvas>
+            </div>
+            <div id="baitscore" class="tab-content">
+                <h2><i class="fa-solid fa-street-view"></i>BaitScore</h2>
+                <canvas id="baitscoreChart"></canvas>
+            </div>
+            <div id="impact" class="tab-content">
+                <h2><i class="fa-solid fa-chart-line"></i>Impact</h2>
+                <canvas id="impactChart"></canvas>
+            </div>
+            <div id="data-table" class="tab-content">
+                <h2><i class="fas fa-table"></i>Données</h2>
+                <table id="dataTable" class="display">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Rnd</th>
+                            <th>K</th>
+                            <th>D</th>
+                            <th>A</th>
+                            <th>FK</th>
+                            <th>FD</th>
+                            <th>CL</th>
+                            <th>LastAlive</th>
+                            <th>KMax</th>
+                            <th>Rating</th>
+                            <th>ACS</th>
+                            <th>ADR</th>
+                            <th>KAST</th>
+                            <th>HS%</th>
+                            <th>KD</th>
+                            <th>KDA</th>
+                            <th>KPR</th>
+                            <th>DPR</th>
+                            <th>APR</th>
+                            <th>FKPR</th>
+                            <th>FDPR</th>
+                            <th>CLPR</th>
+                            <th>LastAlivePR</th>
+                            <th>CL%</th>
+                            <th>BaitScore</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- données insérées par le script -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+    <script src="dataTable.js"></script>
+</body>
+</html>
