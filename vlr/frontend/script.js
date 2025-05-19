@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function filterData(data, minRounds = 50) {
+function filterData(data, minRounds = 100) {
     return data.filter(row => {
         return row.Player !== undefined &&
                row.Team !== undefined &&

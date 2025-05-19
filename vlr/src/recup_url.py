@@ -14,8 +14,9 @@ event_links_2022 = []
 for link in soup.find_all('a', href=True):
     href = link['href']
     if '/event/' in href:
-        event_id = href.split('/')[-1]
-        event_links_2022.append(f"https://www.vlr.gg/event/stats/{event_id}")
+        event_id = href.split('/')[-2]
+        event_name = href.split('/')[-1]
+        event_links_2022.append(f"https://www.vlr.gg/event/stats/{event_id}/{event_name}")
 
 # Display the URLs for 2022 events
 urls_2022 = list(set(event_links_2022))

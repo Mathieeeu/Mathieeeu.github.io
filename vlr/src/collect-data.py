@@ -31,29 +31,33 @@ else:
 
         # Extraire les données du tableau
         for row in soup.select('tbody tr'):
-            cols = row.find_all('td')
-            player = cols[0].text.strip().split('\n')[0]
-            team = cols[0].text.strip().split('\n')[1]
-            stats = [col.text.strip() for col in cols[2:]]
-            selected_stats = [
-                player,  # Player name
-                team,  # Team code
-                stats[0],  # Rnd
-                stats[14],  # K
-                stats[15],  # D
-                stats[16],  # A
-                stats[17],  # FK
-                stats[18],  # FD
-                stats[12].split('/')[0] if '/' in stats[12] else 0,
-                stats[12].split('/')[1] if '/' in stats[12] else 0,
-                stats[13],  # KMax
-                stats[1], # Rating
-                stats[2],  # ACS
-                stats[5],  # ADR
-                float(stats[4].strip('%')) / 100, # KAST% (% en float)
-                float(stats[10].strip('%')) / 100 # HS% (% en float)
-            ]
-            all_data.append(selected_stats)
+            try:
+                cols = row.find_all('td')
+                player = cols[0].text.strip().split('\n')[0]
+                team = cols[0].text.strip().split('\n')[1]
+                stats = [col.text.strip() for col in cols[2:]]
+                selected_stats = [
+                    player,  # Player name
+                    team,  # Team code
+                    stats[0],  # Rnd
+                    stats[14],  # K
+                    stats[15],  # D
+                    stats[16],  # A
+                    stats[17],  # FK
+                    stats[18],  # FD
+                    stats[12].split('/')[0] if '/' in stats[12] else 0,
+                    stats[12].split('/')[1] if '/' in stats[12] else 0,
+                    stats[13],  # KMax
+                    stats[1], # Rating
+                    stats[2],  # ACS
+                    stats[5],  # ADR
+                    float(stats[4].strip('%')) / 100, # KAST% (% en float)
+                    float(stats[10].strip('%')) / 100 # HS% (% en float)
+                ]
+                all_data.append(selected_stats)
+            except Exception as e:
+                print(f"\nErreur lors de l'extraction des données : {e}")
+                continue
 
     # Définir les colonnes
     columns = [
