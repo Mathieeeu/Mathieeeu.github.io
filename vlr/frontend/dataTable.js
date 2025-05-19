@@ -38,14 +38,14 @@ function populateDataTable(data) {
             { data: 'KD', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
             { data: 'KDA', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
             { data: 'KPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
-            { data: 'DPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
+            { data: 'DPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffccff', gradientEndColor: '#ffcccc' },
             { data: 'APR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
             { data: 'FKPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
-            { data: 'FDPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
+            { data: 'FDPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffccff', gradientEndColor: '#ffcccc' },
             { data: 'CLPR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
-            { data: 'LastAlivePR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
+            { data: 'LastAlivePR', defaultContent: '', applyGradient: true, gradientStartColor: '#ffccff', gradientEndColor: '#ffcccc' },
             { data: 'CL%', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' },
-            { data: 'BaitScore', defaultContent: '', applyGradient: true, gradientStartColor: '#ffcccc', gradientEndColor: '#ffccff' }
+            { data: 'BaitScore', defaultContent: '', applyGradient: true, gradientStartColor: '#ffccff', gradientEndColor: '#ffcccc' }
         ]
     });
 }
