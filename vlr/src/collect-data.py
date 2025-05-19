@@ -4,20 +4,13 @@ import requests
 import os
 
 # Liste des URLs à traiter
-urls = [
-    "https://www.vlr.gg/event/stats/2274/champions-tour-2025-americas-kickoff",
-    "https://www.vlr.gg/event/stats/2277/champions-tour-2025-pacific-kickoff",
-    "https://www.vlr.gg/event/stats/2276/champions-tour-2025-emea-kickoff",
-    "https://www.vlr.gg/event/stats/2281/champions-tour-2025-masters-bangkok",
-    "https://www.vlr.gg/event/stats/2347/champions-tour-2025-americas-stage-1",
-    "https://www.vlr.gg/event/stats/2380/champions-tour-2025-emea-stage-1",
-    "https://www.vlr.gg/event/stats/2379/champions-tour-2025-pacific-stage-1",
-]
+from data.urls import urls
+from tqdm import tqdm
 
 # Initialiser une liste pour stocker toutes les données
 all_data = []
 filename = 'data/raw_data.csv'
-take_new_data = False # Mettre à True pour récupérer les nouvelles données
+take_new_data = True # Mettre à True pour récupérer les nouvelles données
 
 if not take_new_data:
     # On utilise les données sauvegardées pour éviter de faire trop de requêtes
@@ -27,8 +20,8 @@ if not take_new_data:
     print(f"Données brutes chargées depuis {filename}.")
 else:
     # Parcourir chaque URL
-    for url in urls:
-        print(f"Traitement de l'évenement : {url}")
+    for url in tqdm(urls, desc="Traitement des événements", unit="evnt"):
+        # print(f"Traitement de l'évenement : {url}")
         # Récupérer le contenu de la page
         response = requests.get(url)
         html_content = response.content
@@ -40,9 +33,11 @@ else:
         for row in soup.select('tbody tr'):
             cols = row.find_all('td')
             player = cols[0].text.strip().split('\n')[0]
+            team = cols[0].text.strip().split('\n')[1]
             stats = [col.text.strip() for col in cols[2:]]
             selected_stats = [
-                player,  # Player
+                player,  # Player name
+                team,  # Team code
                 stats[0],  # Rnd
                 stats[14],  # K
                 stats[15],  # D
@@ -62,7 +57,7 @@ else:
 
     # Définir les colonnes
     columns = [
-        "Player", "Rnd", "K", "D", "A", "FK", "FD", "CL", "LastAlive", "KMax", "Rating", "ACS", "ADR", "KAST", "HS%"
+        "Player", "Team", "Rnd", "K", "D", "A", "FK", "FD", "CL", "LastAlive", "KMax", "Rating", "ACS", "ADR", "KAST", "HS%"
     ]
 
     # Sauvegarder all_data dans un fichier CSV (pour l'utiliser hors connexion)
@@ -73,7 +68,7 @@ else:
 
 # Définir les colonnes
 columns = [
-    "Player", "Rnd", "K", "D", "A", "FK", "FD", "CL", "LastAlive", "KMax", "Rating", "ACS", "ADR", "KAST", "HS%"
+    "Player", "Team", "Rnd", "K", "D", "A", "FK", "FD", "CL", "LastAlive", "KMax", "Rating", "ACS", "ADR", "KAST", "HS%"
 ]
 
 # Créer un DataFrame
@@ -83,8 +78,8 @@ df = pd.DataFrame(all_data, columns=columns)
 numeric_columns = ["Rnd", "K", "D", "A", "FK", "FD", "CL", "LastAlive", "KMax"]
 df[numeric_columns] = df[numeric_columns].apply(pd.to_numeric)
 
-# Regrouper les données par joueur
-grouped = df.groupby(df['Player'].str.lower()).agg({
+# Regrouper les données par joueur et par équipe
+grouped = df.groupby([df['Player'].str.lower(), df['Team']]).agg({
     'Rnd': 'sum',
     'K': 'sum',
     'D': 'sum',
@@ -128,6 +123,6 @@ grouped.to_csv(filename, index=False)
 print(f"Données collectées, fusionnées et enregistrées dans {filename}.")
 
 # Affichage de données
-    # 10 plus gros BaitScore
-print("10 plus gros baiteurs :")
-print(grouped.nlargest(10, 'BaitScore')[['Player', 'BaitScore']])
+    # 10 plus gros nombre de rounds joués
+print("10 plus gros nombre de rounds joués :")
+print(grouped.nlargest(10, 'Rnd')[['Player', 'Team', 'Rnd']])

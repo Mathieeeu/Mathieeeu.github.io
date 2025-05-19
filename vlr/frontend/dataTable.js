@@ -13,13 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function populateDataTable(data) {
     return $('#dataTable').DataTable({
         data: data,
-        pageLength: 50,
+        pageLength: 100,
         lengthMenu: [
             [50, 100, 150, 200, -1],
             ['50', '100', '150', '200', 'Tout']
         ],
         columns: [
             { data: 'Player', defaultContent: '', applyGradient: false },
+            { data: 'Team', defaultContent: '', applyGradient: false },
             { data: 'Rnd', defaultContent: '', applyGradient: false },
             { data: 'K', defaultContent: '', applyGradient: false },
             { data: 'D', defaultContent: '', applyGradient: false },

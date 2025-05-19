@@ -37,9 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function filterData(data) {
+function filterData(data, minRounds = 50) {
     return data.filter(row => {
         return row.Player !== undefined &&
+               row.Team !== undefined &&
                row.Rnd !== undefined &&
                row.KPR !== undefined &&
                row.APR !== undefined &&
@@ -50,7 +51,9 @@ function filterData(data) {
                row.CL !== undefined &&
                row.APR !== undefined &&
                row.KAST !== undefined &&
-               row.ACS !== undefined;
+               row.ACS !== undefined &&
+               !isNaN(parseInt(row.Rnd)) &&
+               parseInt(row.Rnd) >= minRounds;
     });
 }
 
@@ -68,6 +71,7 @@ function createKDAChart(data) {
                     x: dpr[index],
                     y: value,
                     player: data[index].Player,
+                    team: data[index].Team,
                     kpr: data[index].KPR,
                     apr: data[index].APR,
                     dpr: data[index].DPR,
@@ -102,6 +106,7 @@ function createKDAChart(data) {
                             const dataPoint = context.raw;
                             return [
                                 `Player: ${dataPoint.player}`,
+                                `Team: ${dataPoint.team}`,
                                 `KPR: ${dataPoint.kpr}`,
                                 `APR: ${dataPoint.apr}`,
                                 `DPR: ${dataPoint.dpr}`,
@@ -129,6 +134,7 @@ function createESRChart(data) {
                     x: fkprFdpr[index],
                     y: value,
                     player: data[index].Player,
+                    team: data[index].Team,
                     fkpr: data[index].FKPR,
                     fdpr: data[index].FDPR,
                     rounds: data[index].Rnd
@@ -162,6 +168,7 @@ function createESRChart(data) {
                             const dataPoint = context.raw;
                             return [
                                 `Player: ${dataPoint.player}`,
+                                `Team: ${dataPoint.team}`,
                                 `FKPR: ${dataPoint.fkpr}`,
                                 `FDPR: ${dataPoint.fdpr}`,
                                 `(${dataPoint.rounds} rounds)`
@@ -176,22 +183,24 @@ function createESRChart(data) {
 
 function createBaitScoreChart(data) {
     const ctx = document.getElementById('baitscoreChart').getContext('2d');
-    const KDCl = data.map(row => {
+    const baitScore = data.map(row => {
         const KD = parseFloat(row.KD || 0);
         const lastAlivePR = parseFloat(row.LastAlivePR || 0);
-        return KD * lastAlivePR / 100;
+        const APR = parseFloat(row.APR || 1); // Avoid division by zero
+        return APR !== 0 ? (KD * lastAlivePR) / APR : 0;
     });
-    const apr = data.map(row => parseFloat(row.APR || 0));
+    const rounds = data.map(row => parseInt(row.Rnd || 0));
 
     new Chart(ctx, {
         type: 'scatter',
         data: {
             datasets: [{
                 label: 'BaitScore',
-                data: KDCl.map((value, index) => ({
-                    x: apr[index],
-                    y: value,
+                data: rounds.map((value, index) => ({
+                    x: value,
+                    y: baitScore[index],
                     player: data[index].Player,
+                    team: data[index].Team,
                     kd: data[index].KD,
                     lastAlivePR: data[index].LastAlivePR,
                     apr: data[index].APR,
@@ -209,13 +218,13 @@ function createBaitScoreChart(data) {
                     position: 'bottom',
                     title: {
                         display: true,
-                        text: 'APR'
+                        text: 'Rounds Played'
                     }
                 },
                 y: {
                     title: {
                         display: true,
-                        text: 'KD * LastAlivePR'
+                        text: 'BaitScore (KD * LastAlivePR / APR)'
                     }
                 }
             },
@@ -226,10 +235,11 @@ function createBaitScoreChart(data) {
                             const dataPoint = context.raw;
                             return [
                                 `Player: ${dataPoint.player}`,
+                                `Team: ${dataPoint.team}`,
                                 `KD: ${dataPoint.kd}`,
                                 `LastAlivePR: ${dataPoint.lastAlivePR}`,
                                 `APR: ${dataPoint.apr}`,
-                                `(${dataPoint.rounds} rounds)`
+                                `Rounds: ${dataPoint.rounds}`
                             ];
                         }
                     }
@@ -256,6 +266,7 @@ function createImpactChart(data) {
                     x: acs[index],
                     y: value,
                     player: data[index].Player,
+                    team: data[index].Team,
                     kast: data[index].KAST,
                     acs: data[index].ACS,
                     rounds: data[index].Rnd
@@ -289,6 +300,7 @@ function createImpactChart(data) {
                             const dataPoint = context.raw;
                             return [
                                 `Player: ${dataPoint.player}`,
+                                `Team: ${dataPoint.team}`,
                                 `KAST: ${dataPoint.kast}`,
                                 `ACS: ${dataPoint.acs}`,
                                 `(${dataPoint.rounds} rounds)`
