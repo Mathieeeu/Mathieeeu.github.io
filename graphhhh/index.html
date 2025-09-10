@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphhhh</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Visualisation de graphhhh</h1>
+            <div class="burger-menu">
+                <div class="burger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">Génération du graphe...</div>
+
+        <!-- div de notification pour certaines actions (sauvegarde, chargement...) -->
+        <div class="notification" id="notification">
+            <span id="notificationText"></span>
+        </div>
+
+        <div class="controls" id="controls">
+            <h3>Contrôles</h3>
+
+            <div class="control-group">
+                <label for="forceStrength">Répulsion des noeuds:</label>
+                <input type="range" id="forceStrength" class="slider" min="50" max="500" value="300">
+            </div>
+
+            <div class="control-group">
+                <label for="linkDistance">Distance des liens:</label>
+                <input type="range" id="linkDistance" class="slider" min="50" max="300" value="150">
+            </div>
+
+            <div class="control-group">
+                <label for="nodeSize">Taille des noeuds:</label>
+                <input type="range" id="nodeSize" class="slider" min="10" max="40" value="20">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="showWeights" onchange="toggleWeights()">
+                <label for="showWeights">Afficher les poids</label>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <button class="btn" onclick="restartSimulation()">Replacer les noeuds</button>
+            <button class="btn" onclick="generateNewGraph()">Générer graphe aléatoire</button>
+            <!-- <button class="btn" onclick="randomizeColors()">Couleurs aléatoires</button> -->
+
+            <div class="section-divider"></div>
+
+            <!-- Boutons de sauvegarde et chargement -->
+            <button class="btn load" onclick="document.getElementById('fileInput').click()">Charger graphe</button>
+            <button class="btn save" onclick="saveGraph()">Sauvegarder graphe</button>
+            <input type="file" id="fileInput" class="file-input" accept=".json" onchange="loadGraph(event)">
+        </div>
+
+        <div class="stats">
+            <h3>Statistiques</h3>
+            <p><strong>Noeuds:</strong> <span id="nodeCount">0</span></p>
+            <p><strong>Liens:</strong> <span id="linkCount">0</span></p>
+            <!-- <p><strong>Densité:</strong> <span id="density">0%</span></p> -->
+            <!-- <p><strong>Composants:</strong> <span id="components">0</span></p> -->
+        </div>
+
+        <!-- <div class="information">
+            <p><strong>Information:</strong></p>
+            <p>• j'ai pas d'idée de truc à écrire</p>
+            <p>• Mais le cadre est plutôt joli</p>
+            <p>• Je l'ai trouvé sur instagram</p>
+            <p>• Donc je le laisse</p>
+            <p>• Bisous &lt;3</p>
+        </div> -->
+
+        <svg id="graph">
+            <defs>
+                <radialGradient id="nodeGradient" cx="30%" cy="30%">
+                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                </radialGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</body>
+
+</html>
