@@ -4,6 +4,9 @@ const height = window.innerHeight;
 let nodes = [];
 let links = [];
 let showWeights = false;
+let respectDistances = false;
+let BASE_LINK_DISTANCE = 75; // Distance de base réduite
+let linkDistanceCoefficient = 0.5; // Coefficient initial (50%)
 
 // config D3js
 const svg = d3.select("#graph")
@@ -16,7 +19,13 @@ const nodeGroup = g.append("g").attr("class", "nodes");
 
 // simulation de la force via d3
 let simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(d => d.id).distance(150))
+    .force("link", d3.forceLink().id(d => d.id).distance(d => {
+        let distance = BASE_LINK_DISTANCE;
+        if (respectDistances) {
+            distance *= (d.weight / 10);
+        }
+        return distance * linkDistanceCoefficient;
+    }))
     .force("charge", d3.forceManyBody().strength(-300))
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force("collision", d3.forceCollide().radius(30));
@@ -173,6 +182,18 @@ function updateWeightVisibility() {
         .style('display', showWeights ? 'block' : 'none');
     linkGroup.selectAll('.link-weight')
         .style('display', showWeights ? 'block' : 'none');
+}
+
+function toggleRespectDistances() {
+    respectDistances = document.getElementById('respectDistances').checked;
+    simulation.force("link").distance(d => {
+        let distance = BASE_LINK_DISTANCE;
+        if (respectDistances) {
+            distance *= (d.weight / 10);
+        }
+        return distance * linkDistanceCoefficient;
+    });
+    simulation.alpha(1).restart();
 }
 
 // générateur de graphes
@@ -433,7 +454,14 @@ document.getElementById('forceStrength').addEventListener('input', function () {
 });
 
 document.getElementById('linkDistance').addEventListener('input', function () {
-    simulation.force("link").distance(this.value);
+    linkDistanceCoefficient = parseInt(this.value) / 100;
+    simulation.force("link").distance(d => {
+        let distance = BASE_LINK_DISTANCE;
+        if (respectDistances) {
+            distance *= (d.weight / 10);
+        }
+        return distance * linkDistanceCoefficient;
+    });
     simulation.alpha(0.3).restart();
 });
 
