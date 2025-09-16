@@ -39,8 +39,8 @@
             </div>
 
             <div class="control-group">
-                <label for="linkDistance">Distance des liens:</label>
-                <input type="range" id="linkDistance" class="slider" min="50" max="300" value="150">
+                <label for="linkDistance">Coefficient d'éloignement des noeuds:</label>
+                <input type="range" id="linkDistance" class="slider" min="0" max="100" value="50" step="1">
             </div>
 
             <div class="control-group">
@@ -51,6 +51,11 @@
             <div class="checkbox-group">
                 <input type="checkbox" id="showWeights" onchange="toggleWeights()">
                 <label for="showWeights">Afficher les poids</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="respectDistances" onchange="toggleRespectDistances()">
+                <label for="respectDistances">Respecter la distance</label>
             </div>
 
             <div class="section-divider"></div>
